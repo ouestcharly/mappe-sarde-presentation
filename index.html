@@ -154,12 +154,35 @@ ul.trait li::before{content:"";position:absolute;left:0;top:.68em;width:18px;hei
       <div><span class="tag">Le corpus à ce jour</span><h2>129 paroisses calées</h2></div>
       <div class="g c2" style="gap:40px">
         <div class="reg"><div class="note-chiffre">1 693<small style="font-size:30px"> km²</small></div><div class="lab">de territoire couvert</div></div>
-        <div class="reg"><div class="note-chiffre">22 709</div><div class="lab">points de calage posés à la main</div></div>
+        <div class="reg"><div class="note-chiffre">26 062</div><div class="lab">points de calage posés à la main</div></div>
       </div>
     </div>
     <img class="img" src="assets/carte_corpus.svg" alt="Carte des paroisses traitées">
   </div>
   <div class="pied"><span>Les mappes sardes</span><span>07</span></div>
+</section>
+<section class="s" data-sec="II · La méthode">
+  <div class="g" style="grid-template-columns:1fr 1.1fr;gap:60px;height:100%">
+    <div style="display:flex;flex-direction:column;justify-content:space-between">
+      <div><span class="tag">En chiffres</span><h2 style="font-size:68px">Le nombre de points dépend du terrain</h2></div>
+      <div class="g c2" style="gap:36px 40px">
+        <div class="reg"><div class="note-chiffre">205</div><div class="lab">points par mappe en moyenne<br>(médiane 168)</div></div>
+        <div class="reg"><div class="note-chiffre">13<small style="font-size:30px"> km²</small></div><div class="lab">par mappe en moyenne<br>de 1,5 à 72 km²</div></div>
+        <div class="reg"><div class="note-chiffre">15</div><div class="lab">points au km² sur l'ensemble</div></div>
+        <div class="reg"><div class="note-chiffre">11 → 1 477</div><div class="lab">d'Abondance (4e feuille) à Talloires</div></div>
+      </div>
+      <div class="g c3" style="gap:28px">
+        <div class="reg" style="border-color:var(--g)"><div class="note-chiffre" style="font-size:48px">32</div><div class="lab">pts/km² · indice 75–99 %</div></div>
+        <div class="reg" style="border-color:var(--o)"><div class="note-chiffre" style="font-size:48px">12</div><div class="lab">pts/km² · indice 50–74 %</div></div>
+        <div class="reg" style="border-color:var(--r)"><div class="note-chiffre" style="font-size:48px">3</div><div class="lab">pts/km² · indice <div class="lab">pts/km², sous 50 %</div>lt; 50 %</div></div>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;min-height:0">
+      <img class="img" src="assets/points_surface.svg" alt="Points de calage selon la surface de chaque mappe" style="flex:1">
+      <p class="pt">Chaque point est une mappe : surface et nombre de points de calage (échelles logarithmiques). Couleur : indice de précision. Densités médianes par classe.</p>
+    </div>
+  </div>
+  <div class="pied"><span>Les mappes sardes</span><span>08</span></div>
 </section>
 <section class="s" data-sec="II · La méthode">
   <span class="tag">Six étapes</span>
@@ -173,7 +196,7 @@ ul.trait li::before{content:"";position:absolute;left:0;top:.68em;width:18px;hei
     <div><div class="n">06</div><div class="t">Assembler</div><div class="d">Harmoniser les teintes et raccorder les mappes entre elles.</div></div>
   </div>
   <p class="lead" style="margin-top:80px">Le travail se fait dans QGIS, logiciel libre de cartographie. La chaîne est automatisée : une fois les points posés, une mappe est traitée en quelques minutes.</p>
-  <div class="pied"><span>Les mappes sardes</span><span>08</span></div>
+  <div class="pied"><span>Les mappes sardes</span><span>09</span></div>
 </section>
 <section class="s" data-sec="II · La méthode · 02 Pointer">
   <div class="g" style="grid-template-columns:900px 1fr;gap:80px;height:100%">
@@ -188,7 +211,7 @@ ul.trait li::before{content:"";position:absolute;left:0;top:.68em;width:18px;hei
       </div>
     </div>
   </div>
-  <div class="pied"><span>Les mappes sardes</span><span>09</span></div>
+  <div class="pied"><span>Les mappes sardes</span><span>10</span></div>
 </section>
 <section class="s" data-sec="II · La méthode · 03 Recaler">
   <span class="tag">Le recalage</span>
@@ -205,7 +228,7 @@ ul.trait li::before{content:"";position:absolute;left:0;top:.68em;width:18px;hei
       <div class="reg"><div class="note-chiffre ve">≤ 2 px</div><div class="lab">d'écart après report</div></div>
     </div>
   </div>
-  <div class="pied"><span>Les mappes sardes</span><span>10</span></div>
+  <div class="pied"><span>Les mappes sardes</span><span>11</span></div>
 </section>
 <section class="s" data-sec="II · La méthode · 04 Déformer">
   <span class="tag">Six façons de caler une image</span>
@@ -218,7 +241,7 @@ ul.trait li::before{content:"";position:absolute;left:0;top:.68em;width:18px;hei
     <figure><div class="pic"><img class="img" src="assets/transfo_tps.svg" alt=""></div><figcaption><b>TPS</b>Passe exactement par chaque point, se tord entre eux.<br><span class="bx">0 m, par construction</span></figcaption></figure>
   </div>
   <p class="pt" style="margin-top:22px">Mappe de Loisin, 144 points. Déformations exagérées 10 fois. Chiffre : écart médian aux points. La sixième, l'hybride, est détaillée plus loin.</p>
-  <div class="pied"><span>Les mappes sardes</span><span>11</span></div>
+  <div class="pied"><span>Les mappes sardes</span><span>12</span></div>
 </section>
 <section class="s" data-sec="II · La méthode · 04 Déformer">
   <span class="tag">Le choix</span>
@@ -240,7 +263,7 @@ ul.trait li::before{content:"";position:absolute;left:0;top:.68em;width:18px;hei
       <p class="pt" style="margin-top:22px">Transformation retenue, par mappe traitée</p>
     </div>
   </div>
-  <div class="pied"><span>Les mappes sardes</span><span>12</span></div>
+  <div class="pied"><span>Les mappes sardes</span><span>13</span></div>
 </section>
 <section class="s" data-sec="II · La méthode · 04 Déformer">
   <div class="g" style="grid-template-columns:560px 1fr;gap:60px;height:100%">
@@ -256,7 +279,7 @@ ul.trait li::before{content:"";position:absolute;left:0;top:.68em;width:18px;hei
     </div>
     <img class="img" src="assets/thonon_hybride.svg" alt="Thonon, calage hybride">
   </div>
-  <div class="pied"><span>Les mappes sardes</span><span>13</span></div>
+  <div class="pied"><span>Les mappes sardes</span><span>14</span></div>
 </section>
 <section class="s" data-sec="II · La méthode · 05 Découper">
   <div class="g" style="grid-template-columns:1fr 1fr;gap:60px;height:100%;align-items:center">
@@ -267,7 +290,7 @@ ul.trait li::before{content:"";position:absolute;left:0;top:.68em;width:18px;hei
     </div>
     <img class="img" src="assets/loisin_calee.webp" alt="Loisin calée" style="max-height:820px">
   </div>
-  <div class="pied"><span>Les mappes sardes</span><span>14</span></div>
+  <div class="pied"><span>Les mappes sardes</span><span>15</span></div>
 </section>
 <section class="s" data-sec="II · La méthode · 06 Assembler">
   <span class="tag">Assembler</span>
@@ -277,7 +300,7 @@ ul.trait li::before{content:"";position:absolute;left:0;top:.68em;width:18px;hei
     <div class="reg"><h3>Superposer</h3><p class="mut">Là où deux mappes se chevauchent, un ordre de priorité décide laquelle passe devant.</p></div>
     <div class="reg"><h3>Morceaux</h3><p class="mut">Les grandes paroisses de montagne (Chamonix, Passy, Samoëns) sont dessinées en plusieurs feuilles, calées une à une.</p></div>
   </div>
-  <div class="pied"><span>Les mappes sardes</span><span>15</span></div>
+  <div class="pied"><span>Les mappes sardes</span><span>16</span></div>
 </section>
 <section class="s noir" data-sec="III · La fiabilité">
   <div style="position:absolute;left:120px;bottom:220px;right:120px">
@@ -285,7 +308,7 @@ ul.trait li::before{content:"";position:absolute;left:0;top:.68em;width:18px;hei
     <h1 style="font-size:130px">Peut-on s'y fier&nbsp;?</h1>
     <p class="lead mut" style="margin-top:48px;color:rgba(255,255,255,.7)">Une mappe calée a toujours l'air juste. Deux mesures disent où elle l'est vraiment.</p>
   </div>
-  <div class="pied"><span>Les mappes sardes</span><span>16</span></div>
+  <div class="pied"><span>Les mappes sardes</span><span>17</span></div>
 </section>
 <section class="s" data-sec="III · La fiabilité · L'écart">
   <div class="g" style="grid-template-columns:620px 1fr;gap:60px;height:100%">
@@ -302,7 +325,7 @@ ul.trait li::before{content:"";position:absolute;left:0;top:.68em;width:18px;hei
     </div>
     <img class="img" src="assets/loisin_ecarts.svg" alt="Écarts à Loisin">
   </div>
-  <div class="pied"><span>Les mappes sardes</span><span>17</span></div>
+  <div class="pied"><span>Les mappes sardes</span><span>18</span></div>
 </section>
 <section class="s" data-sec="III · La fiabilité · L'indice de précision">
   <div class="g" style="grid-template-columns:620px 1fr;gap:60px;height:100%">
@@ -318,7 +341,7 @@ ul.trait li::before{content:"";position:absolute;left:0;top:.68em;width:18px;hei
       <div class="abs" style="right:0;top:0;text-align:right"><div class="num ve">93<small>%</small></div><div class="lab">Loisin</div></div>
     </div>
   </div>
-  <div class="pied"><span>Les mappes sardes</span><span>18</span></div>
+  <div class="pied"><span>Les mappes sardes</span><span>19</span></div>
 </section>
 <section class="s" data-sec="III · La fiabilité · Plaine et montagne">
   <span class="tag">Plaine et montagne</span>
@@ -341,7 +364,7 @@ ul.trait li::before{content:"";position:absolute;left:0;top:.68em;width:18px;hei
       </div>
     </div>
   </div>
-  <div class="pied"><span>Les mappes sardes</span><span>19</span></div>
+  <div class="pied"><span>Les mappes sardes</span><span>20</span></div>
 </section>
 <section class="s" data-sec="III · La fiabilité · Les limites de l'indice">
   <div class="g" style="grid-template-columns:900px 1fr;gap:80px;height:100%">
@@ -358,7 +381,7 @@ ul.trait li::before{content:"";position:absolute;left:0;top:.68em;width:18px;hei
       <p class="pt" style="margin-top:14px">Bernex, 472 points. Flèches × 6. D'où l'usage conjoint de l'écart et de l'indice.</p>
     </div>
   </div>
-  <div class="pied"><span>Les mappes sardes</span><span>20</span></div>
+  <div class="pied"><span>Les mappes sardes</span><span>21</span></div>
 </section>
 <section class="s" data-sec="III · La fiabilité · Vue d'ensemble">
   <div class="g" style="grid-template-columns:1fr 1.25fr;gap:40px;height:100%">
@@ -376,7 +399,7 @@ ul.trait li::before{content:"";position:absolute;left:0;top:.68em;width:18px;hei
     </div>
     <img class="img" src="assets/carte_indice.svg" alt="Carte de l'indice de précision">
   </div>
-  <div class="pied"><span>Les mappes sardes</span><span>21</span></div>
+  <div class="pied"><span>Les mappes sardes</span><span>22</span></div>
 </section>
 <section class="s" data-sec="IV · Et après">
   <span class="tag">Ce que ça permet</span>
@@ -386,7 +409,7 @@ ul.trait li::before{content:"";position:absolute;left:0;top:.68em;width:18px;hei
     <div class="reg"><h3>Collectivités</h3><p class="mut">Patrimoine, urbanisme, médiation : comprendre ce qui a façonné un village, un chemin, une limite.</p></div>
     <div class="reg"><h3>Recherche</h3><p class="mut">Comparer les paysages, mesurer leur évolution, et croiser avec d'autres sources.</p></div>
   </div>
-  <div class="pied"><span>Les mappes sardes</span><span>22</span></div>
+  <div class="pied"><span>Les mappes sardes</span><span>23</span></div>
 </section>
 <section class="s" data-sec="IV · Et après">
   <span class="tag">Sortir de l'écran</span>
@@ -397,7 +420,7 @@ ul.trait li::before{content:"";position:absolute;left:0;top:.68em;width:18px;hei
     <div class="reg"><h3>Découpe laser</h3><p class="mut">Le relief en couches, la mappe gravée dessus.</p></div>
     <div class="reg"><h3>Vidéo</h3><p class="mut">Un survol du territoire de 1730.</p></div>
   </div>
-  <div class="pied"><span>Les mappes sardes</span><span>23</span></div>
+  <div class="pied"><span>Les mappes sardes</span><span>24</span></div>
 </section>
 <section class="s" data-sec="IV · Et après">
   <span class="tag">La suite</span>
@@ -407,7 +430,7 @@ ul.trait li::before{content:"";position:absolute;left:0;top:.68em;width:18px;hei
     <div class="reg"><h3>Renforcer</h3><p class="mut">Ajouter des points là où l'indice est bas, avec l'aide de connaisseurs du terrain.</p></div>
     <div class="reg"><h3>Documenter</h3><p class="mut">Cotes, liens vers les numérisations, géomètres et estimateurs de chaque mappe.</p></div>
   </div>
-  <div class="pied"><span>Les mappes sardes</span><span>24</span></div>
+  <div class="pied"><span>Les mappes sardes</span><span>25</span></div>
 </section>
 <section class="s" data-sec="IV · Et après">
   <span class="tag">La suite · Vision</span>
@@ -418,7 +441,7 @@ ul.trait li::before{content:"";position:absolute;left:0;top:.68em;width:18px;hei
     <div class="reg"><span class="tag" style="margin-bottom:10px">02</span><h3>Analyser</h3><p class="mut">Des outils d'analyse urbaine : comparer les états, mesurer les permanences et les ruptures.</p></div>
     <div class="reg"><span class="tag" style="margin-bottom:10px">03</span><h3>Communiquer</h3><p class="mut">Plans, maquettes, vues et vidéos pour partager un projet avec les élus et les habitants.</p></div>
   </div>
-  <div class="pied"><span>Les mappes sardes</span><span>25</span></div>
+  <div class="pied"><span>Les mappes sardes</span><span>26</span></div>
 </section>
 <section class="s noir" data-sec="La carte">
   <div style="position:absolute;left:120px;bottom:220px;right:120px">
@@ -426,7 +449,7 @@ ul.trait li::before{content:"";position:absolute;left:0;top:.68em;width:18px;hei
     <h1 style="font-size:170px">La carte</h1>
     <button class="bouton" id="ouvrir">Ouvrir la carte <span style="font-size:40px">→</span></button>
   </div>
-  <div class="pied"><span>Les mappes sardes</span><span>26</span></div>
+  <div class="pied"><span>Les mappes sardes</span><span>27</span></div>
 </section>
 <section class="s titre" data-sec="Conclusion">
   <div style="position:absolute;left:120px;top:150px;right:120px">
