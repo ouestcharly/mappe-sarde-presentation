@@ -172,14 +172,14 @@ ul.trait li::before{content:"";position:absolute;left:0;top:.68em;width:18px;hei
         <div class="reg"><div class="note-chiffre">11 → 1 477</div><div class="lab">d'Abondance (4e feuille) à Talloires</div></div>
       </div>
       <div class="g c3" style="gap:28px">
-        <div class="reg" style="border-color:var(--g)"><div class="note-chiffre" style="font-size:48px">32</div><div class="lab">pts/km² · indice 75–99 %</div></div>
+        <div class="reg" style="border-color:var(--g)"><div class="note-chiffre" style="font-size:48px">31</div><div class="lab">pts/km² · indice 75–99 %</div></div>
         <div class="reg" style="border-color:var(--o)"><div class="note-chiffre" style="font-size:48px">12</div><div class="lab">pts/km² · indice 50–74 %</div></div>
-        <div class="reg" style="border-color:var(--r)"><div class="note-chiffre" style="font-size:48px">3</div><div class="lab">pts/km² · indice <div class="lab">pts/km², sous 50 %</div>lt; 50 %</div></div>
+        <div class="reg" style="border-color:var(--r)"><div class="note-chiffre" style="font-size:48px">3</div><div class="lab">pts/km² · indice &lt; 50 %</div></div>
       </div>
     </div>
     <div style="display:flex;flex-direction:column;min-height:0">
       <img class="img" src="assets/points_surface.svg" alt="Points de calage selon la surface de chaque mappe" style="flex:1">
-      <p class="pt">Chaque point est une mappe : surface et nombre de points de calage (échelles logarithmiques). Couleur : indice de précision. Densités médianes par classe.</p>
+      <p class="pt">Chaque point est une mappe : surface et nombre de points de calage (échelles logarithmiques). Couleur : indice de précision. Densités médianes de points par classe.</p>
     </div>
   </div>
   <div class="pied"><span>Les mappes sardes</span><span>08</span></div>
@@ -306,7 +306,7 @@ ul.trait li::before{content:"";position:absolute;left:0;top:.68em;width:18px;hei
   <div style="position:absolute;left:120px;bottom:220px;right:120px">
     <div style="font-size:30px;margin-bottom:40px" class="mut">III</div>
     <h1 style="font-size:130px">Peut-on s'y fier&nbsp;?</h1>
-    <p class="lead mut" style="margin-top:48px;color:rgba(255,255,255,.7)">Une mappe calée a toujours l'air juste. Deux mesures disent où elle l'est vraiment.</p>
+    <p class="lead mut" style="margin-top:48px;color:rgba(255,255,255,.7)">Une mappe calée a toujours l'air juste. Deux mesures disent où elle l'est vraiment : l'écart et l'indice de précision.</p>
   </div>
   <div class="pied"><span>Les mappes sardes</span><span>17</span></div>
 </section>
@@ -314,74 +314,90 @@ ul.trait li::before{content:"";position:absolute;left:0;top:.68em;width:18px;hei
   <div class="g" style="grid-template-columns:620px 1fr;gap:60px;height:100%">
     <div style="align-self:center">
       <span class="tag">Mesure 1 · L'écart</span>
-      <h2 style="font-size:64px">Où la mappe et le terrain ne s'accordent pas</h2>
-      <p style="margin-top:36px">Chaque flèche relie un point, tel que la mappe calée le place, à sa position réelle. On les compare à une transformation poly 3.</p>
-      <div class="g c2" style="margin-top:50px;gap:36px">
-        <div class="reg"><div class="note-chiffre ve">8,9 m</div><div class="lab">écart médian à Loisin</div></div>
-        <div class="reg"><div class="note-chiffre">81 / 144</div><div class="lab">points à moins de 10 m</div></div>
+      <h2 style="font-size:64px">Retirer un point, et voir de combien on le manque</h2>
+      <p style="margin-top:36px">Pour chaque point, on recale la mappe sans lui, puis on mesure l'écart entre la position prédite et la position réelle. Le calage ne peut pas tricher avec ses propres points.</p>
+      <div class="g c2" style="margin-top:44px;gap:36px">
+        <div class="reg"><div class="note-chiffre ve">9,8 m</div><div class="lab">écart médian à Loisin</div></div>
+        <div class="reg"><div class="note-chiffre">2 / 144</div><div class="lab">points à plus de 50 m</div></div>
       </div>
-      <div class="leg" style="margin-top:36px"><span><i style="background:var(--ve)"></i>&lt; 10 m</span><span><i style="background:#c9a23a"></i>10 – 25 m</span><span><i style="background:var(--bx)"></i>&gt; 25 m</span></div>
-      <p class="pt" style="margin-top:14px">Longueur des flèches × 15. Échelle : 1 km.</p>
+      <div class="leg" style="margin-top:30px;flex-wrap:wrap;gap:14px 30px"><span><i style="background:var(--ve);border-radius:50%"></i>≤ 10 m</span><span><i style="background:#c9a23a;border-radius:50%"></i>10 – 50 m</span><span><i style="background:var(--bx);border-radius:50%"></i>&gt; 50 m</span><span><i style="background:#9aa0a3;border-radius:50%"></i>Point de limite</span></div>
+      <p class="pt" style="margin-top:14px">Flèches × 15. Échelle : 1 km.</p>
     </div>
-    <img class="img" src="assets/loisin_ecarts.svg" alt="Écarts à Loisin">
+    <img class="img" src="assets/ecarts2_loisin.svg" alt="Écarts à Loisin">
   </div>
   <div class="pied"><span>Les mappes sardes</span><span>18</span></div>
 </section>
 <section class="s" data-sec="III · La fiabilité · L'indice de précision">
-  <div class="g" style="grid-template-columns:620px 1fr;gap:60px;height:100%">
-    <div style="align-self:center">
-      <span class="tag">Mesure 2 · L'indice de précision</span>
-      <h2 style="font-size:64px">Quelle part de la paroisse est tenue par un point&nbsp;?</h2>
-      <p style="margin-top:36px">Autour de chaque point, un rayon de 300 m. La part de la paroisse couverte donne l'indice. Ailleurs, le calage est extrapolé.</p>
-      <div class="leg" style="margin-top:40px"><span><i style="background:var(--vc)"></i>À moins de 300 m d'un point</span><span><i style="background:repeating-linear-gradient(45deg,#7d8386 0 1px,#fff 1px 6px)"></i>Extrapolé</span></div>
-      <p class="pt" style="margin-top:18px">Plafonné à 99 % : aucune mappe n'est parfaite.</p>
-    </div>
-    <div style="position:relative">
-      <img class="img" src="assets/couverture_loisin.svg" alt="Couverture à Loisin">
-      <div class="abs" style="right:0;top:0;text-align:right"><div class="num ve">93<small>%</small></div><div class="lab">Loisin</div></div>
-    </div>
+  <span class="tag">Mesure 2 · L'indice de précision</span>
+  <h2 style="font-size:64px">Trois ingrédients : couvrir, juste, et dense</h2>
+  <div class="g c3" style="margin-top:56px;gap:56px">
+    <div class="reg"><span class="tag" style="margin-bottom:8px">01 · Couverture</span><h3>Chaque point tient 300 m</h3><p class="mut" style="font-size:26px">Autour de chaque point, un cercle de 300 m. Au-delà, le calage est extrapolé.</p></div>
+    <div class="reg"><span class="tag" style="margin-bottom:8px">02 · Qualité</span><h3>Un point juste tient plus loin</h3><div style="height:260px"><img class="img" src="assets/rayon_ecart.svg" alt=""></div><p class="mut" style="font-size:22px">Les points posés sur la limite comptent sans pénalité.</p></div>
+    <div class="reg"><span class="tag" style="margin-bottom:8px">03 · Densité</span><h3>Le soin du pointage</h3><div style="height:260px"><img class="img" src="assets/note_densite.svg" alt=""></div><p class="mut" style="font-size:22px">Bons points par km², note pleine à partir de 20.</p></div>
+  </div>
+  <div style="margin-top:50px;border-top:2px solid var(--ink);padding-top:22px;display:flex;align-items:baseline;gap:30px;flex-wrap:wrap">
+    <span style="font-size:40px;font-weight:600;letter-spacing:-.02em">Indice = 60 % couverture de qualité + 40 % densité</span><span class="pt">plafonné à 99 % : aucune mappe n'est parfaite</span>
   </div>
   <div class="pied"><span>Les mappes sardes</span><span>19</span></div>
+</section>
+<section class="s" data-sec="III · La fiabilité · L'indice de précision">
+  <div class="g" style="grid-template-columns:620px 1fr;gap:60px;height:100%">
+    <div style="align-self:center">
+      <span class="tag">L'indice à Loisin</span>
+      <h2 style="font-size:64px">Une paroisse tenue de bout en bout</h2>
+      <div class="g c2" style="margin-top:44px;gap:36px">
+        <div class="reg"><div class="note-chiffre">91 %</div><div class="lab">couverture de qualité</div></div>
+        <div class="reg"><div class="note-chiffre">18</div><div class="lab">bons points au km²</div></div>
+      </div>
+      <div class="leg" style="margin-top:36px"><span><i style="background:var(--vc)"></i>Tenu par un bon point</span><span><i style="background:repeating-linear-gradient(45deg,#7d8386 0 1px,#fff 1px 6px)"></i>Extrapolé</span></div>
+      <div class="leg" style="margin-top:30px;flex-wrap:wrap;gap:14px 30px"><span><i style="background:var(--ve);border-radius:50%"></i>≤ 10 m</span><span><i style="background:#c9a23a;border-radius:50%"></i>10 – 50 m</span><span><i style="background:var(--bx);border-radius:50%"></i>&gt; 50 m</span><span><i style="background:#9aa0a3;border-radius:50%"></i>Point de limite</span></div>
+    </div>
+    <div style="position:relative">
+      <img class="img" src="assets/indice2_loisin.svg" alt="Indice à Loisin">
+      <div class="abs" style="right:0;top:0;text-align:right"><div class="num ve">94<small>%</small></div><div class="lab">Loisin</div></div>
+    </div>
+  </div>
+  <div class="pied"><span>Les mappes sardes</span><span>20</span></div>
 </section>
 <section class="s" data-sec="III · La fiabilité · Plaine et montagne">
   <span class="tag">Plaine et montagne</span>
   <h2 style="font-size:64px">Même méthode, deux réalités</h2>
   <div class="g c2" style="margin-top:44px;gap:80px;height:690px">
-    <div style="display:grid;grid-template-columns:1fr 250px;gap:30px">
-      <img class="img" src="assets/couverture_loisin.svg" alt="">
+    <div style="display:grid;grid-template-columns:1fr 260px;gap:30px">
+      <img class="img" src="assets/indice2_loisin.svg" alt="">
       <div style="align-self:end">
-        <div class="note-chiffre ve" style="font-size:110px">93 %</div>
+        <div class="note-chiffre ve" style="font-size:110px">94 %</div>
         <h3 style="margin-top:14px">Loisin, en plaine</h3>
-        <p class="pt">7,9 km² · 144 points<br>répartis sur toute la paroisse</p>
+        <p class="pt">7,9 km² · 144 points<br>18 bons points au km²<br>couverture de qualité 91 %</p>
       </div>
     </div>
-    <div style="display:grid;grid-template-columns:1fr 250px;gap:30px">
-      <img class="img" src="assets/couverture_bernex.svg" alt="">
+    <div style="display:grid;grid-template-columns:1fr 260px;gap:30px">
+      <img class="img" src="assets/indice2_bernex.svg" alt="">
       <div style="align-self:end">
-        <div class="note-chiffre" style="font-size:110px;color:#d98a3d">70 %</div>
+        <div class="note-chiffre ve" style="font-size:110px">79 %</div>
         <h3 style="margin-top:14px">Bernex, en montagne</h3>
-        <p class="pt">22,5 km² · 472 points<br>serrés autour du village</p>
+        <p class="pt">22,5 km² · 472 points<br>21 bons points au km²<br>couverture de qualité 65 %</p>
       </div>
-    </div>
-  </div>
-  <div class="pied"><span>Les mappes sardes</span><span>20</span></div>
-</section>
-<section class="s" data-sec="III · La fiabilité · Les limites de l'indice">
-  <div class="g" style="grid-template-columns:900px 1fr;gap:80px;height:100%">
-    <img class="img" src="assets/bernex_ecarts.svg" alt="Écarts à Bernex">
-    <div style="align-self:center">
-      <span class="tag">Ce que l'indice ne dit pas</span>
-      <h2 style="font-size:60px">Un bon indice ne fait pas une mappe juste partout</h2>
-      <ul class="trait" style="margin-top:40px">
-        <li><b>Il mesure une couverture, pas une exactitude.</b> À Bernex, l'écart médian (9,4 m) vaut celui de la plaine…</li>
-        <li><b>… mais les pentes décrochent.</b> Peu de repères, un relief dessiné à plat : jusqu'à 200 m d'écart.</li>
-        <li><b>Les 300 m sont un choix</b>, pas une règle.</li>
-      </ul>
-      <div class="leg" style="margin-top:30px"><span><i style="background:var(--ve)"></i>&lt; 10 m</span><span><i style="background:#c9a23a"></i>10 – 25 m</span><span><i style="background:var(--bx)"></i>&gt; 25 m</span></div>
-      <p class="pt" style="margin-top:14px">Bernex, 472 points. Flèches × 6. D'où l'usage conjoint de l'écart et de l'indice.</p>
     </div>
   </div>
   <div class="pied"><span>Les mappes sardes</span><span>21</span></div>
+</section>
+<section class="s" data-sec="III · La fiabilité · Les limites de l'indice">
+  <div class="g" style="grid-template-columns:900px 1fr;gap:80px;height:100%">
+    <img class="img" src="assets/ecarts2_bernex.svg" alt="Écarts à Bernex">
+    <div style="align-self:center">
+      <span class="tag">Ce que l'indice ne dit pas</span>
+      <h2 style="font-size:60px">Lire l'indice avec la mappe</h2>
+      <ul class="trait" style="margin-top:40px">
+        <li><b>Les limites ont pu bouger.</b> À Bernex, 16 des 18 points à plus de 50 m sont sur la limite : ils comptent pour la couverture, pas pour l'écart.</li>
+        <li><b>Les pentes restent fragiles.</b> Peu de repères, un relief dessiné à plat.</li>
+        <li><b>Les réglages sont des choix</b> : 300 m, 10 et 50 m, 20 points au km².</li>
+      </ul>
+      <div class="leg" style="margin-top:30px;flex-wrap:wrap;gap:14px 30px"><span><i style="background:var(--ve);border-radius:50%"></i>≤ 10 m</span><span><i style="background:#c9a23a;border-radius:50%"></i>10 – 50 m</span><span><i style="background:var(--bx);border-radius:50%"></i>&gt; 50 m</span><span><i style="background:#9aa0a3;border-radius:50%"></i>Point de limite</span></div>
+      <p class="pt" style="margin-top:14px">Bernex, 472 points. Flèches × 6. Écart médian à l'intérieur de la paroisse : 8,6 m.</p>
+    </div>
+  </div>
+  <div class="pied"><span>Les mappes sardes</span><span>22</span></div>
 </section>
 <section class="s" data-sec="III · La fiabilité · Vue d'ensemble">
   <div class="g" style="grid-template-columns:1fr 1.25fr;gap:40px;height:100%">
@@ -389,17 +405,17 @@ ul.trait li::before{content:"";position:absolute;left:0;top:.68em;width:18px;hei
       <div><span class="tag">L'indice partout</span><h2 style="font-size:68px">La plaine est tenue, la montagne reste fragile</h2></div>
       <div>
         <div class="g c3" style="gap:28px">
-          <div class="reg" style="border-color:var(--g)"><div class="note-chiffre">73</div><div class="lab">mappes de 75 à 99 %</div></div>
-          <div class="reg" style="border-color:var(--o)"><div class="note-chiffre">24</div><div class="lab">de 50 à 74 %</div></div>
-          <div class="reg" style="border-color:var(--r)"><div class="note-chiffre">29</div><div class="lab">sous 50 %</div></div>
+          <div class="reg" style="border-color:var(--g)"><div class="note-chiffre">77</div><div class="lab">mappes de 75 à 99 %</div></div>
+          <div class="reg" style="border-color:var(--o)"><div class="note-chiffre">19</div><div class="lab">de 50 à 74 %</div></div>
+          <div class="reg" style="border-color:var(--r)"><div class="note-chiffre">30</div><div class="lab">sous 50 %</div></div>
         </div>
         <img src="assets/indice_barres.svg" alt="" style="width:100%;margin-top:40px">
-        <p class="pt">Indice médian : 80 %</p>
+        <p class="pt">Indice médian : 84 %</p>
       </div>
     </div>
     <img class="img" src="assets/carte_indice.svg" alt="Carte de l'indice de précision">
   </div>
-  <div class="pied"><span>Les mappes sardes</span><span>22</span></div>
+  <div class="pied"><span>Les mappes sardes</span><span>23</span></div>
 </section>
 <section class="s" data-sec="IV · Et après">
   <span class="tag">Ce que ça permet</span>
@@ -409,7 +425,7 @@ ul.trait li::before{content:"";position:absolute;left:0;top:.68em;width:18px;hei
     <div class="reg"><h3>Collectivités</h3><p class="mut">Patrimoine, urbanisme, médiation : comprendre ce qui a façonné un village, un chemin, une limite.</p></div>
     <div class="reg"><h3>Recherche</h3><p class="mut">Comparer les paysages, mesurer leur évolution, et croiser avec d'autres sources.</p></div>
   </div>
-  <div class="pied"><span>Les mappes sardes</span><span>23</span></div>
+  <div class="pied"><span>Les mappes sardes</span><span>24</span></div>
 </section>
 <section class="s" data-sec="IV · Et après">
   <span class="tag">Sortir de l'écran</span>
@@ -420,7 +436,7 @@ ul.trait li::before{content:"";position:absolute;left:0;top:.68em;width:18px;hei
     <div class="reg"><h3>Découpe laser</h3><p class="mut">Le relief en couches, la mappe gravée dessus.</p></div>
     <div class="reg"><h3>Vidéo</h3><p class="mut">Un survol du territoire de 1730.</p></div>
   </div>
-  <div class="pied"><span>Les mappes sardes</span><span>24</span></div>
+  <div class="pied"><span>Les mappes sardes</span><span>25</span></div>
 </section>
 <section class="s" data-sec="IV · Et après">
   <span class="tag">La suite</span>
@@ -430,7 +446,7 @@ ul.trait li::before{content:"";position:absolute;left:0;top:.68em;width:18px;hei
     <div class="reg"><h3>Renforcer</h3><p class="mut">Ajouter des points là où l'indice est bas, avec l'aide de connaisseurs du terrain.</p></div>
     <div class="reg"><h3>Documenter</h3><p class="mut">Cotes, liens vers les numérisations, géomètres et estimateurs de chaque mappe.</p></div>
   </div>
-  <div class="pied"><span>Les mappes sardes</span><span>25</span></div>
+  <div class="pied"><span>Les mappes sardes</span><span>26</span></div>
 </section>
 <section class="s" data-sec="IV · Et après">
   <span class="tag">La suite · Vision</span>
@@ -441,7 +457,7 @@ ul.trait li::before{content:"";position:absolute;left:0;top:.68em;width:18px;hei
     <div class="reg"><span class="tag" style="margin-bottom:10px">02</span><h3>Analyser</h3><p class="mut">Des outils d'analyse urbaine : comparer les états, mesurer les permanences et les ruptures.</p></div>
     <div class="reg"><span class="tag" style="margin-bottom:10px">03</span><h3>Communiquer</h3><p class="mut">Plans, maquettes, vues et vidéos pour partager un projet avec les élus et les habitants.</p></div>
   </div>
-  <div class="pied"><span>Les mappes sardes</span><span>26</span></div>
+  <div class="pied"><span>Les mappes sardes</span><span>27</span></div>
 </section>
 <section class="s noir" data-sec="La carte">
   <div style="position:absolute;left:120px;bottom:220px;right:120px">
@@ -449,7 +465,7 @@ ul.trait li::before{content:"";position:absolute;left:0;top:.68em;width:18px;hei
     <h1 style="font-size:170px">La carte</h1>
     <button class="bouton" id="ouvrir">Ouvrir la carte <span style="font-size:40px">→</span></button>
   </div>
-  <div class="pied"><span>Les mappes sardes</span><span>27</span></div>
+  <div class="pied"><span>Les mappes sardes</span><span>28</span></div>
 </section>
 <section class="s titre" data-sec="Conclusion">
   <div style="position:absolute;left:120px;top:150px;right:120px">
