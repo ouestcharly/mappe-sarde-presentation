@@ -272,18 +272,19 @@ ul.trait li::before{content:"";position:absolute;left:0;top:.68em;width:18px;hei
     <figure><div class="pic"><img class="img" src="assets/transfo_helmert.svg" alt=""></div><figcaption><b>Helmert</b>Tourner, agrandir, déplacer. La mappe reste intacte.<br><span class="ve">11,8 m</span></figcaption></figure>
     <figure><div class="pic"><img class="img" src="assets/transfo_poly1.svg" alt=""></div><figcaption><b>Poly 1</b>Peut aussi étirer et cisailler, en gardant les droites.<br><span class="ve">11,9 m</span></figcaption></figure>
     <figure><div class="pic"><img class="img" src="assets/transfo_poly2.svg" alt=""></div><figcaption><b>Poly 2</b>Les lignes se courbent légèrement.<br><span class="ve">11,2 m</span></figcaption></figure>
-    <figure><div class="pic"><img class="img" src="assets/transfo_poly3.svg" alt=""></div><figcaption><b>Poly 3</b>Courbure plus fine. Notre réglage par défaut.<br><span class="ve">8,9 m</span></figcaption></figure>
-    <figure><div class="pic"><img class="img" src="assets/transfo_tps.svg" alt=""></div><figcaption><b>TPS</b>Passe exactement par chaque point, se tord entre eux.<br><span class="bx">0 m, par construction</span></figcaption></figure>
+    <figure><div class="pic"><img class="img" src="assets/transfo_poly3.svg" alt=""></div><figcaption><b>Poly 3</b>Courbure plus fine, adaptée au plan d'archives. Notre réglage par défaut.<br><span class="ve">8,9 m</span></figcaption></figure>
+    <figure><div class="pic"><img class="img" src="assets/transfo_tps.svg" alt=""></div><figcaption><b>TPS</b>Recomposition pixel par pixel : passe exactement par chaque point, se tord entre eux.<br><span class="bx">0 m, par construction</span></figcaption></figure>
   </div>
   <p class="pt" style="margin-top:22px">Mappe de Loisin, 144 points. Déformations exagérées 10 fois. Chiffre : écart médian aux points. La sixième, l'hybride, est détaillée plus loin.</p>
   <div class="pied"><span>Les mappes sardes</span><span>15</span></div>
 </section>
 <section class="s" data-sec="II · La méthode · 03 Projeter">
   <span class="tag">Le choix</span>
-  <h2>Corriger le papier, pas le géomètre</h2>
-  <div class="g c2" style="margin-top:80px;gap:100px">
+  <h2>Un procédé itératif</h2>
+  <div class="g c2" style="margin-top:60px;gap:100px">
     <div>
       <p>Une transformation trop souple suit chaque point, y compris les erreurs : un clic imprécis, une maison mal placée en 1730. Elle donne l'illusion d'un calage parfait.</p>
+      <p style="margin-top:28px">Procéder par étapes permet d'affiner le calage et d'éviter les erreurs ou les fausses intuitions : d'abord Helmert, puis le polynôme d'ordre 3.</p>
       <p style="margin-top:28px">Le polynôme d'ordre 3 corrige les déformations d'ensemble (papier, assemblage des feuilles) et laisse voir les écarts qui restent.</p>
     </div>
     <div>
@@ -301,90 +302,64 @@ ul.trait li::before{content:"";position:absolute;left:0;top:.68em;width:18px;hei
   <div class="pied"><span>Les mappes sardes</span><span>16</span></div>
 </section>
 <section class="s" data-sec="II · La méthode · 03 Projeter">
-  <div class="g" style="grid-template-columns:560px 1fr;gap:60px;height:100%">
+  <div class="g" style="grid-template-columns:560px 1fr 1fr;gap:50px;height:100%">
     <div style="align-self:center">
-      <span class="tag">L'hybride</span>
-      <h2 style="font-size:64px">Poly 3 partout, TPS là où il le faut</h2>
-      <p style="margin-top:36px">À Thonon, le bourg ancien est dessiné plus librement que la campagne. On lui applique une déformation locale, raccordée au reste par une transition de 150 m.</p>
-      <div class="leg" style="margin-top:40px;flex-direction:column;align-items:flex-start;gap:14px">
-        <span><i style="background:var(--ve);border-radius:50%"></i>Points calés en poly 3 · 417</span>
-        <span><i style="background:var(--bx);border-radius:50%"></i>Points en zone TPS · 26</span>
-        <span><i style="background:#f3e7e9;border:1px dashed var(--bx)"></i>Transition de 150 m</span>
-      </div>
+      <h2 style="font-size:64px">Transformation hybride</h2>
+      <p style="margin-top:36px">À partir d'un certain nombre de points de calage, le polynôme d'ordre 3 atteint ses limites et ne permet plus un calage précis de la mappe. Lorsque le contexte est certain et connu, on peut passer ponctuellement à un calage plus précis en TPS, comme ici pour le centre de Thonon.</p>
     </div>
-    <img class="img" src="assets/thonon_hybride.svg" alt="Thonon, calage hybride">
+    <figure class="reg" style="margin:0;display:flex;flex-direction:column;min-height:0"><h3>Poly 3</h3><div style="flex:1;min-height:0"><img class="img" src="assets/thonon_poly3.jpg" alt="Thonon calée en poly 3" style="object-position:center top"></div></figure>
+    <figure class="reg" style="margin:0;display:flex;flex-direction:column;min-height:0"><h3>TPS</h3><div style="flex:1;min-height:0"><img class="img" src="assets/thonon_tps.jpg" alt="Thonon calée en TPS" style="object-position:center top"></div></figure>
   </div>
   <div class="pied"><span>Les mappes sardes</span><span>17</span></div>
 </section>
-<section class="s" data-sec="II · La méthode · 04 Découper">
-  <div class="g" style="grid-template-columns:1fr 1fr;gap:60px;height:100%;align-items:center">
-    <div>
-      <span class="tag">Calée et découpée</span>
-      <h2 style="font-size:68px">La mappe reprend sa place</h2>
-      <p style="margin-top:40px">Déformée selon ses points, la mappe est ensuite découpée suivant la limite de la paroisse : sans marges, sans cartouche, prête à rejoindre ses voisines.</p>
+<section class="s" data-sec="II · La méthode · 04 Découper · 05 Assembler">
+  <span class="tag">Découper et assembler</span>
+  <h2>Processus d'assemblage</h2>
+  <div class="g" style="grid-template-columns:0.9fr 1fr 1fr;gap:44px;margin-top:56px">
+    <div style="display:flex;flex-direction:column;gap:30px">
+      <div class="reg"><h3>Découper</h3><p class="mut" style="font-size:25px">Déformée selon ses points, la mappe est ensuite découpée suivant la limite de la paroisse : sans marges, sans cartouche.</p></div>
+      <div class="reg"><h3>Superposer</h3><p class="mut" style="font-size:25px">Là où deux mappes se raccordent, un ordre de priorité décide laquelle passe devant.</p></div>
+      <div class="reg"><h3>Harmoniser</h3><p class="mut" style="font-size:25px">Chaque mappe a son papier et son vieillissement. Les teintes sont rapprochées pour une lecture continue.</p></div>
     </div>
-    <img class="img" src="assets/loisin_calee.webp" alt="Loisin calée" style="max-height:820px">
+    <figure class="reg" style="margin:0"><h3>Découpage</h3><div style="height:640px"><img class="img" src="assets/decoupage.jpg" alt="Mappes découpées" style="object-position:center top"></div></figure>
+    <figure class="reg" style="margin:0"><h3>Harmonisation</h3><div style="height:640px"><img class="img" src="assets/harmonisation.jpg" alt="Mappes harmonisées" style="object-position:center top"></div></figure>
   </div>
   <div class="pied"><span>Les mappes sardes</span><span>18</span></div>
-</section>
-<section class="s" data-sec="II · La méthode · 05 Assembler">
-  <span class="tag">Assembler</span>
-  <h2>Des mappes qui se raccordent</h2>
-  <div class="g c3" style="margin-top:90px">
-    <div class="reg"><h3>Harmoniser</h3><p class="mut">Chaque mappe a son papier et son vieillissement. Les teintes sont rapprochées pour une lecture continue.</p></div>
-    <div class="reg"><h3>Superposer</h3><p class="mut">Là où deux mappes se chevauchent, un ordre de priorité décide laquelle passe devant.</p></div>
-    <div class="reg"><h3>Morceaux</h3><p class="mut">Les grandes paroisses de montagne (Chamonix, Passy, Samoëns) sont dessinées en plusieurs feuilles, calées une à une.</p></div>
-  </div>
-  <div class="pied"><span>Les mappes sardes</span><span>19</span></div>
 </section>
 <section class="s noir" data-sec="III · La fiabilité">
   <div style="position:absolute;left:120px;bottom:220px;right:120px">
     <div style="font-size:30px;margin-bottom:40px" class="mut">III</div>
     <h1 style="font-size:130px">Peut-on s'y fier&nbsp;?</h1>
-    <p class="lead mut" style="margin-top:48px;color:rgba(255,255,255,.7)">Une mappe calée a toujours l'air juste. Deux mesures disent où elle l'est vraiment : l'écart et l'indice de précision.</p>
+    <p class="lead mut" style="margin-top:48px;color:rgba(255,255,255,.7)">Intégration d'un indice de précision.</p>
   </div>
-  <div class="pied"><span>Les mappes sardes</span><span>20</span></div>
+  <div class="pied"><span>Les mappes sardes</span><span>19</span></div>
 </section>
 <section class="s" data-sec="III · La fiabilité · L'écart">
   <div class="g" style="grid-template-columns:620px 1fr;gap:60px;height:100%">
     <div style="align-self:center">
       <span class="tag">Mesure 1 · L'écart</span>
-      <h2 style="font-size:64px">Retirer un point, et voir de combien on le manque</h2>
-      <p style="margin-top:36px">Pour chaque point, on recale la mappe sans lui, puis on mesure l'écart entre la position prédite et la position réelle. Le calage ne peut pas tricher avec ses propres points.</p>
+      <h2 style="font-size:64px">Mesurer l'écart</h2>
+      <p style="margin-top:36px">Chaque point reçoit un résidu de déformation : l'écart, en mètres, entre la position que prédit la transformation et la position réelle du point.</p>
       <div class="g c2" style="margin-top:44px;gap:36px">
         <div class="reg"><div class="note-chiffre ve">9,8 m</div><div class="lab">écart médian à Loisin</div></div>
         <div class="reg"><div class="note-chiffre">2 / 144</div><div class="lab">points à plus de 50 m</div></div>
       </div>
-      <div class="leg" style="margin-top:30px;flex-wrap:wrap;gap:14px 30px"><span><i style="background:var(--ve);border-radius:50%"></i>≤ 10 m</span><span><i style="background:#c9a23a;border-radius:50%"></i>10 – 50 m</span><span><i style="background:var(--bx);border-radius:50%"></i>&gt; 50 m</span><span><i style="background:#9aa0a3;border-radius:50%"></i>Point de limite</span></div>
-      <p class="pt" style="margin-top:14px">Flèches × 15. Échelle : 1 km.</p>
+      <p class="pt" style="margin-top:30px">Loisin, résidus de chaque point : à gauche en poly 3, à droite en Helmert.</p>
     </div>
-    <img class="img" src="assets/ecarts2_loisin.svg" alt="Écarts à Loisin">
+    <img class="img" src="assets/loisin_poly3_helmert.jpg" alt="Résidus à Loisin, poly 3 et Helmert">
   </div>
-  <div class="pied"><span>Les mappes sardes</span><span>21</span></div>
-</section>
-<section class="s" data-sec="III · La fiabilité · L'indice de précision">
-  <span class="tag">Mesure 2 · L'indice de précision</span>
-  <h2 style="font-size:64px">Trois ingrédients : couvrir, juste, et dense</h2>
-  <div class="g c3" style="margin-top:56px;gap:56px">
-    <div class="reg"><span class="tag" style="margin-bottom:8px">01 · Couverture</span><h3>Chaque point tient 300 m</h3><p class="mut" style="font-size:26px">Autour de chaque point, un cercle de 300 m. Au-delà, le calage est extrapolé.</p></div>
-    <div class="reg"><span class="tag" style="margin-bottom:8px">02 · Qualité</span><h3>Un point juste tient plus loin</h3><div style="height:260px"><img class="img" src="assets/rayon_ecart.svg" alt=""></div><p class="mut" style="font-size:22px">Les points posés sur la limite comptent sans pénalité.</p></div>
-    <div class="reg"><span class="tag" style="margin-bottom:8px">03 · Densité</span><h3>Le soin du pointage</h3><div style="height:260px"><img class="img" src="assets/note_densite.svg" alt=""></div><p class="mut" style="font-size:22px">Bons points par km², note pleine à partir de 20.</p></div>
-  </div>
-  <div style="margin-top:50px;border-top:2px solid var(--ink);padding-top:22px;display:flex;align-items:baseline;gap:30px;flex-wrap:wrap">
-    <span style="font-size:40px;font-weight:600;letter-spacing:-.02em">Indice = 60 % couverture de qualité + 40 % densité</span><span class="pt">plafonné à 99 % : aucune mappe n'est parfaite</span>
-  </div>
-  <div class="pied"><span>Les mappes sardes</span><span>22</span></div>
+  <div class="pied"><span>Les mappes sardes</span><span>20</span></div>
 </section>
 <section class="s" data-sec="III · La fiabilité · L'indice de précision">
   <div class="g" style="grid-template-columns:620px 1fr;gap:60px;height:100%">
     <div style="align-self:center">
-      <span class="tag">L'indice à Loisin</span>
-      <h2 style="font-size:64px">Une paroisse tenue de bout en bout</h2>
+      <span class="tag">Mesure 2 · La couverture</span>
+      <h2 style="font-size:64px">Mesurer la couverture</h2>
+      <p style="margin-top:36px">Autour de chaque point, un rayon de 300 m est tracé, puis on mesure la part de la paroisse qui n'est pas couverte.</p>
       <div class="g c2" style="margin-top:44px;gap:36px">
         <div class="reg"><div class="note-chiffre">91 %</div><div class="lab">couverture de qualité</div></div>
-        <div class="reg"><div class="note-chiffre">18</div><div class="lab">bons points au km²</div></div>
       </div>
-      <div class="leg" style="margin-top:36px"><span><i style="background:var(--vc)"></i>Tenu par un bon point</span><span><i style="background:repeating-linear-gradient(45deg,#7d8386 0 1px,#fff 1px 6px)"></i>Extrapolé</span></div>
+      <div class="leg" style="margin-top:36px"><span><i style="background:var(--vc)"></i>Couverture d'un point</span><span><i style="background:repeating-linear-gradient(45deg,#7d8386 0 1px,#fff 1px 6px)"></i>Non couvert</span></div>
       <div class="leg" style="margin-top:30px;flex-wrap:wrap;gap:14px 30px"><span><i style="background:var(--ve);border-radius:50%"></i>≤ 10 m</span><span><i style="background:#c9a23a;border-radius:50%"></i>10 – 50 m</span><span><i style="background:var(--bx);border-radius:50%"></i>&gt; 50 m</span><span><i style="background:#9aa0a3;border-radius:50%"></i>Point de limite</span></div>
     </div>
     <div style="position:relative">
@@ -392,156 +367,61 @@ ul.trait li::before{content:"";position:absolute;left:0;top:.68em;width:18px;hei
       <div class="abs" style="right:0;top:0;text-align:right"><div class="num ve">94<small>%</small></div><div class="lab">Loisin</div></div>
     </div>
   </div>
-  <div class="pied"><span>Les mappes sardes</span><span>23</span></div>
+  <div class="pied"><span>Les mappes sardes</span><span>21</span></div>
 </section>
 <section class="s" data-sec="III · La fiabilité · Plaine et montagne">
-  <span class="tag">Plaine et montagne</span>
-  <h2 style="font-size:64px">Même méthode, deux réalités</h2>
-  <div class="g c2" style="margin-top:44px;gap:80px;height:690px">
-    <div style="display:grid;grid-template-columns:1fr 260px;gap:30px">
+  <span class="tag">Mesure 3 · Plaine et montagne</span>
+  <h2 style="font-size:64px">Indice de précision</h2>
+  <p class="mut" style="margin-top:24px;font-size:27px;max-width:1500px">Une note qui additionne trois facteurs : la couverture de qualité, la densité des points (nombre de points au km²) et l'écart résiduel de chaque point. Elle rattrape certaines mappes de montagne, bien référencées mais dont la couverture reste incomplète, faute de repères sur de grandes étendues.</p>
+  <div class="g c2" style="margin-top:36px;gap:80px;height:560px">
+    <div style="display:grid;grid-template-columns:1fr 310px;gap:30px">
       <img class="img" src="assets/indice2_loisin.svg" alt="">
       <div style="align-self:end">
         <div class="note-chiffre ve" style="font-size:110px">94 %</div>
         <h3 style="margin-top:14px">Loisin, en plaine</h3>
-        <p class="pt">7,9 km² · 144 points<br>18 bons points au km²<br>couverture de qualité 91 %</p>
+        <p class="pt">7,9 km² · 144 points<br>18 points au km²<br>couverture de qualité&nbsp;91&nbsp;%</p>
       </div>
     </div>
-    <div style="display:grid;grid-template-columns:1fr 260px;gap:30px">
+    <div style="display:grid;grid-template-columns:1fr 310px;gap:30px">
       <img class="img" src="assets/indice2_bernex.svg" alt="">
       <div style="align-self:end">
         <div class="note-chiffre ve" style="font-size:110px">79 %</div>
         <h3 style="margin-top:14px">Bernex, en montagne</h3>
-        <p class="pt">22,5 km² · 472 points<br>21 bons points au km²<br>couverture de qualité 65 %</p>
+        <p class="pt">22,5 km² · 472 points<br>21 points au km²<br>couverture de qualité&nbsp;65&nbsp;%</p>
       </div>
     </div>
+  </div>
+  <div class="pied"><span>Les mappes sardes</span><span>22</span></div>
+</section>
+<section class="s" data-sec="IV · Interface web">
+  <span class="tag">Le fonctionnement</span>
+  <h2>Une carte, des sources ouvertes</h2>
+  <svg viewBox="0 0 1680 600" style="width:100%;height:auto;margin-top:46px;font-family:Geist,sans-serif"><text x="0" y="-4" font-size="19" font-weight="600" letter-spacing="1.2" fill="var(--ve)" dy="20">LE PROJET</text><text x="1240" y="-4" font-size="19" font-weight="600" letter-spacing="1.2" fill="var(--bx)" dy="20">SERVICES OUVERTS</text><path d="M440 55 C 540 55, 560 304, 640 304" fill="none" stroke="var(--vc)" stroke-width="2"/><line x1="0" y1="55" x2="440" y2="55" stroke="var(--ve)" stroke-width="2"/><text x="0" y="88" font-size="26" font-weight="600" fill="var(--ink)">Mappes calées</text><text x="0" y="116" font-size="20" fill="var(--mut)">132 mappes, découpées et assemblées</text><path d="M440 193 C 540 193, 560 304, 640 304" fill="none" stroke="var(--vc)" stroke-width="2"/><line x1="0" y1="193" x2="440" y2="193" stroke="var(--ve)" stroke-width="2"/><text x="0" y="226" font-size="26" font-weight="600" fill="var(--ink)">Paroisses</text><text x="0" y="254" font-size="20" fill="var(--mut)">fiches, cotes, indice de précision</text><path d="M440 331 C 540 331, 560 304, 640 304" fill="none" stroke="var(--vc)" stroke-width="2"/><line x1="0" y1="331" x2="440" y2="331" stroke="var(--ve)" stroke-width="2"/><text x="0" y="364" font-size="26" font-weight="600" fill="var(--ink)">Images des Archives</text><text x="0" y="392" font-size="20" fill="var(--mut)">copies de la Haute-Savoie, servies en IIIF</text><path d="M440 469 C 540 469, 560 304, 640 304" fill="none" stroke="var(--vc)" stroke-width="2"/><line x1="0" y1="469" x2="440" y2="469" stroke="var(--ve)" stroke-width="2"/><text x="0" y="502" font-size="26" font-weight="600" fill="var(--ink)">Géoréférencements des visiteurs</text><text x="0" y="530" font-size="20" fill="var(--mut)">faits dans Allmaps, vérifiés avant intégration</text><path d="M1240 55 C 1140 55, 1120 304, 1040 304" fill="none" stroke="#e8cfd3" stroke-width="2"/><line x1="1240" y1="55" x2="1680" y2="55" stroke="var(--bx)" stroke-width="2"/><text x="1240" y="88" font-size="26" font-weight="600" fill="var(--ink)">SITG, Genève</text><text x="1240" y="116" font-size="20" fill="var(--mut)">plan Micheli 1730, ortho 1932, parcelles</text><path d="M1240 147 C 1140 147, 1120 304, 1040 304" fill="none" stroke="#e8cfd3" stroke-width="2"/><line x1="1240" y1="147" x2="1680" y2="147" stroke="var(--bx)" stroke-width="2"/><text x="1240" y="180" font-size="26" font-weight="600" fill="var(--ink)">IGN Géoplateforme</text><text x="1240" y="208" font-size="20" fill="var(--mut)">cadastre, bâtiments, ortho 1950-65</text><path d="M1240 239 C 1140 239, 1120 304, 1040 304" fill="none" stroke="#e8cfd3" stroke-width="2"/><line x1="1240" y1="239" x2="1680" y2="239" stroke="var(--bx)" stroke-width="2"/><text x="1240" y="272" font-size="26" font-weight="600" fill="var(--ink)">swisstopo</text><text x="1240" y="300" font-size="20" fill="var(--mut)">données fédérales suisses</text><path d="M1240 331 C 1140 331, 1120 304, 1040 304" fill="none" stroke="#e8cfd3" stroke-width="2"/><line x1="1240" y1="331" x2="1680" y2="331" stroke="var(--bx)" stroke-width="2"/><text x="1240" y="364" font-size="26" font-weight="600" fill="var(--ink)">Mapterhorn</text><text x="1240" y="392" font-size="20" fill="var(--mut)">relief pour la 3D et l'ombrage</text><path d="M1240 423 C 1140 423, 1120 304, 1040 304" fill="none" stroke="#e8cfd3" stroke-width="2"/><line x1="1240" y1="423" x2="1680" y2="423" stroke="var(--bx)" stroke-width="2"/><text x="1240" y="456" font-size="26" font-weight="600" fill="var(--ink)">OpenFreeMap, Esri</text><text x="1240" y="484" font-size="20" fill="var(--mut)">fond de plan et image satellite</text><path d="M1240 515 C 1140 515, 1120 304, 1040 304" fill="none" stroke="#e8cfd3" stroke-width="2"/><line x1="1240" y1="515" x2="1680" y2="515" stroke="var(--bx)" stroke-width="2"/><text x="1240" y="548" font-size="26" font-weight="600" fill="var(--ink)">Adresses</text><text x="1240" y="576" font-size="20" fill="var(--mut)">Base adresse nationale, OpenStreetMap</text><rect x="640" y="202" width="400" height="202" fill="var(--ink)"/><text x="840" y="318" text-anchor="middle" font-size="44" font-weight="600" fill="#fff">Le site</text></svg>
+  <div class="pied"><span>Les mappes sardes</span><span>23</span></div>
+</section>
+<section class="s" data-sec="IV · Interface web · Les fonctionnalités">
+  <span class="tag">Interface web</span>
+  <h2>Les fonctionnalités</h2>
+  <div class="g c4" style="margin-top:70px;gap:56px 48px">
+    <div class="reg"><h3>Se géolocaliser</h3><p class="mut" style="font-size:24px">Sur le terrain, sa position et la boussole, directement sur la mappe.</p></div>
+    <div class="reg"><h3>Données territoriales et cotes</h3><p class="mut" style="font-size:24px">Une paroisse touchée ouvre sa fiche : cote d'archives, géomètre, estimateurs, numérisation, indice.</p></div>
+    <div class="reg"><h3>Comparer deux fonds de plan</h3><p class="mut" style="font-size:24px">Les mappes face au cadastre, à la photo d'aujourd'hui ou à d'autres cartes anciennes : opacité, loupe, écran partagé.</p></div>
+    <div class="reg"><h3>Rechercher une adresse</h3><p class="mut" style="font-size:24px">Une commune, un lieu-dit, une adresse.</p></div>
+    <div class="reg"><h3>Plans PDF et maquettes 3D</h3><p class="mut" style="font-size:24px">Un PDF à l'échelle, du A4 au A0. Une maquette 3D à imprimer ou à découper au laser.</p></div>
+    <div class="reg"><h3>Réalité augmentée</h3><p class="mut" style="font-size:24px">Voir la mappe de 1730 dans le paysage, depuis son téléphone.</p></div>
+    <div class="reg"><h3>Contribuer au projet</h3><p class="mut" style="font-size:24px">Géoréférencer une copie des Archives dans Allmaps, depuis le site.</p></div>
   </div>
   <div class="pied"><span>Les mappes sardes</span><span>24</span></div>
 </section>
-<section class="s" data-sec="III · La fiabilité · Les limites de l'indice">
-  <div class="g" style="grid-template-columns:900px 1fr;gap:80px;height:100%">
-    <img class="img" src="assets/ecarts2_bernex.svg" alt="Écarts à Bernex">
-    <div style="align-self:center">
-      <span class="tag">Ce que l'indice ne dit pas</span>
-      <h2 style="font-size:60px">Lire l'indice avec la mappe</h2>
-      <ul class="trait" style="margin-top:40px">
-        <li><b>Les limites ont pu bouger.</b> À Bernex, 16 des 18 points à plus de 50 m sont sur la limite : ils comptent pour la couverture, pas pour l'écart.</li>
-        <li><b>Les pentes restent fragiles.</b> Peu de repères, un relief dessiné à plat.</li>
-        <li><b>Les réglages sont des choix</b> : 300 m, 10 et 50 m, 20 points au km².</li>
-      </ul>
-      <div class="leg" style="margin-top:30px;flex-wrap:wrap;gap:14px 30px"><span><i style="background:var(--ve);border-radius:50%"></i>≤ 10 m</span><span><i style="background:#c9a23a;border-radius:50%"></i>10 – 50 m</span><span><i style="background:var(--bx);border-radius:50%"></i>&gt; 50 m</span><span><i style="background:#9aa0a3;border-radius:50%"></i>Point de limite</span></div>
-      <p class="pt" style="margin-top:14px">Bernex, 472 points. Flèches × 6. Écart médian à l'intérieur de la paroisse : 8,6 m.</p>
-    </div>
+<section class="s" data-sec="IV · Interface web · Perspectives">
+  <span class="tag">Perspectives</span>
+  <h2>Vers un outil de connaissance du territoire&nbsp;?</h2>
+  <p class="lead" style="margin-top:36px">Dans l'esprit de <b>Time Machine</b> (Frédéric Kaplan et Isabella di Lenardo, EPFL) : une seule plateforme où les sources historiques se répondent, parce qu'elles sont toutes rattachées au même sol.</p>
+  <div class="g c2" style="margin-top:56px;gap:44px">
+    <figure class="reg" style="margin:0"><div style="height:500px"><img class="img" src="assets/time_atlas.jpg" alt="Time Atlas" style="object-position:left top"></div></figure>
+    <figure class="reg" style="margin:0"><div style="height:500px"><img class="img" src="assets/time_atlas_2.jpg" alt="Time Atlas" style="object-position:left top"></div></figure>
   </div>
   <div class="pied"><span>Les mappes sardes</span><span>25</span></div>
-</section>
-<section class="s" data-sec="III · La fiabilité · Vue d'ensemble">
-  <div class="g" style="grid-template-columns:1fr 1.25fr;gap:40px;height:100%">
-    <div style="display:flex;flex-direction:column;justify-content:space-between">
-      <div><span class="tag">L'indice partout</span><h2 style="font-size:68px">La plaine est tenue, la montagne reste fragile</h2></div>
-      <div>
-        <div class="g c3" style="gap:28px">
-          <div class="reg" style="border-color:var(--g)"><div class="note-chiffre">77</div><div class="lab">mappes de 75 à 99 %</div></div>
-          <div class="reg" style="border-color:var(--o)"><div class="note-chiffre">19</div><div class="lab">de 50 à 74 %</div></div>
-          <div class="reg" style="border-color:var(--r)"><div class="note-chiffre">36</div><div class="lab">sous 50 %</div></div>
-        </div>
-        <img src="assets/indice_barres.svg" alt="" style="width:100%;margin-top:40px">
-        <p class="pt">Indice médian : 82 %</p>
-      </div>
-    </div>
-    <img class="img" src="assets/carte_indice.svg" alt="Carte de l'indice de précision">
-  </div>
-  <div class="pied"><span>Les mappes sardes</span><span>26</span></div>
-</section>
-<section class="s" data-sec="IV · Et après">
-  <span class="tag">Ce que ça permet</span>
-  <h2>Lire 1730 à travers aujourd'hui</h2>
-  <div class="g c3" style="margin-top:90px">
-    <div class="reg"><h3>Archives</h3><p class="mut">Entrer dans les fonds par le territoire : chaque paroisse renvoie à sa cote et à sa numérisation.</p></div>
-    <div class="reg"><h3>Collectivités</h3><p class="mut">Patrimoine, urbanisme, médiation : comprendre ce qui a façonné un village, un chemin, une limite.</p></div>
-    <div class="reg"><h3>Recherche</h3><p class="mut">Comparer les paysages, mesurer leur évolution, et croiser avec d'autres sources.</p></div>
-  </div>
-  <div class="pied"><span>Les mappes sardes</span><span>27</span></div>
-</section>
-<section class="s" data-sec="IV · Et après">
-  <span class="tag">Sortir de l'écran</span>
-  <h2>De la carte à l'objet</h2>
-  <div class="g c4" style="margin-top:90px;gap:40px">
-    <div class="reg"><h3>Plans à l'échelle</h3><p class="mut">Un extrait imprimable, à l'échelle choisie.</p></div>
-    <div class="reg"><h3>Maquette 3D</h3><p class="mut">La mappe drapée sur le relief, à imprimer ou à partager.</p></div>
-    <div class="reg"><h3>Découpe laser</h3><p class="mut">Le relief en couches, la mappe gravée dessus.</p></div>
-    <div class="reg"><h3>Vidéo</h3><p class="mut">Un survol du territoire de 1730.</p></div>
-  </div>
-  <div class="pied"><span>Les mappes sardes</span><span>28</span></div>
-</section>
-<section class="s" data-sec="IV · Et après · Généalogie">
-  <span class="tag">Généalogie</span>
-  <h2>Retrouver une famille sur sa parcelle</h2>
-  <p class="lead" style="margin-top:44px">Les livres de la mappe donnent, pour chaque numéro de parcelle, le propriétaire, la nature de la terre et sa surface. Une fois ces livres saisis, la carte devient un registre consultable.</p>
-  <div class="g c3" style="margin-top:80px">
-    <div class="reg"><span class="tag" style="margin-bottom:10px">01</span><h3>Dessiner</h3><p class="mut">Les parcelles de 1730 en couches vectorielles, posées sur la mappe calée.</p></div>
-    <div class="reg"><span class="tag" style="margin-bottom:10px">02</span><h3>Saisir</h3><p class="mut">Les livres de géométrie : propriétaire, nature, surface, parcelle par parcelle.</p></div>
-    <div class="reg"><span class="tag" style="margin-bottom:10px">03</span><h3>Chercher</h3><p class="mut">Un nom de famille, un lieu-dit, un numéro : la parcelle s'allume sur la carte.</p></div>
-  </div>
-  <p class="pt" style="margin-top:56px">Déjà engagé ailleurs : Numimappe (Pays de Fillière), CadNap85 (Vendée, saisie participative).</p>
-  <div class="pied"><span>Les mappes sardes</span><span>29</span></div>
-</section>
-<section class="s" data-sec="IV · Et après · Contribuer">
-  <span class="tag">Contribuer</span>
-  <h2>Géoréférencer à plusieurs</h2>
-  <p class="lead" style="margin-top:44px">Les images restent aux Archives : la carte les affiche directement depuis leur serveur. Chacun peut désormais caler une mappe, depuis la carte.</p>
-  <div class="etapes" style="grid-template-columns:repeat(5,1fr);gap:34px;margin-top:64px">
-    <div class="on"><div class="n">01</div><div class="t">Choisir</div><div class="d">Une paroisse dans la liste des copies des Archives de la Haute-Savoie.</div></div>
-    <div class="on"><div class="n">02</div><div class="t">Pointer</div><div class="d">Dans l'éditeur Allmaps, sur le cadastre actuel : les mêmes repères que pour les autres mappes.</div></div>
-    <div class="on"><div class="n">03</div><div class="t">Voir</div><div class="d">Le résultat apparaît aussitôt sur la carte, et se vérifie parcelle par parcelle.</div></div>
-    <div><div class="n">04</div><div class="t">Être prévenu</div><div class="d">Une veille quotidienne signale chaque nouveau géoréférencement.</div></div>
-    <div><div class="n">05</div><div class="t">Valider</div><div class="d">Les points rejoignent la chaîne : contrôle, découpe, indice de précision.</div></div>
-  </div>
-  <div class="g c3" style="margin-top:70px;gap:56px">
-    <div><div class="note-chiffre">310</div><div class="lab">copies proposées</div></div>
-    <div><div class="note-chiffre ve">101</div><div class="lab">déjà sur la carte</div></div>
-    <div><div class="note-chiffre bx">Allinges</div><div class="lab">premier essai, 13 novembre 2026</div></div>
-  </div>
-  <div class="pied"><span>Les mappes sardes</span><span>30</span></div>
-</section>
-<section class="s" data-sec="IV · Et après">
-  <span class="tag">La suite</span>
-  <h2>Ce qui reste à faire</h2>
-  <div class="g c3" style="margin-top:90px">
-    <div class="reg"><h3>Compléter</h3><p class="mut">Les paroisses manquantes, dont plusieurs grandes paroisses de montagne en plusieurs feuilles. Chacun peut désormais y contribuer.</p></div>
-    <div class="reg"><h3>Renforcer</h3><p class="mut">Ajouter des points là où l'indice est bas, avec l'aide de connaisseurs du terrain, directement depuis la carte.</p></div>
-    <div class="reg"><h3>Documenter</h3><p class="mut">Cotes, liens vers les numérisations, géomètres et estimateurs de chaque mappe.</p></div>
-  </div>
-  <div class="pied"><span>Les mappes sardes</span><span>31</span></div>
-</section>
-<section class="s" data-sec="IV · Et après">
-  <span class="tag">La suite · Vision</span>
-  <h2>Vers un outil de connaissance du territoire</h2>
-  <p class="lead" style="margin-top:44px">Dans l'esprit de <b>Time Machine</b> (Frédéric Kaplan et Isabella di Lenardo, EPFL) : une seule plateforme où les sources historiques se répondent, parce qu'elles sont toutes rattachées au même sol.</p>
-  <div class="g c3" style="margin-top:80px">
-    <div class="reg"><span class="tag" style="margin-bottom:10px">01</span><h3>Rassembler</h3><p class="mut">Cartes, plans, cadastres, photographies, textes : des médias de toutes époques, calés sur le territoire.</p></div>
-    <div class="reg"><span class="tag" style="margin-bottom:10px">02</span><h3>Analyser</h3><p class="mut">Des outils d'analyse urbaine : comparer les états, mesurer les permanences et les ruptures.</p></div>
-    <div class="reg"><span class="tag" style="margin-bottom:10px">03</span><h3>Communiquer</h3><p class="mut">Plans, maquettes, vues et vidéos pour partager un projet avec les élus et les habitants.</p></div>
-  </div>
-  <div class="pied"><span>Les mappes sardes</span><span>32</span></div>
-</section>
-<section class="s" data-sec="La carte · Les fonctions">
-  <span class="tag">Les fonctions</span>
-  <h2>Ce que fait la carte</h2>
-  <div class="g c3" style="margin-top:70px;gap:56px 64px">
-    <div class="reg"><h3>Chercher</h3><p class="mut" style="font-size:25px">Une commune, un lieu-dit, une adresse. Une paroisse touchée ouvre sa fiche : cote, géomètre, estimateurs, numérisation, indice.</p></div>
-    <div class="reg"><h3>Superposer</h3><p class="mut" style="font-size:25px">Les mappes sur le cadastre et la photo d'aujourd'hui, ou sur d'autres cartes anciennes : plan Billon, Cassini, État-major, Dufour, photos aériennes de 1932 et des années 1950.</p></div>
-    <div class="reg"><h3>Comparer</h3><p class="mut" style="font-size:25px">Un curseur d'opacité, une loupe, un écran partagé en deux, à la verticale ou à l'horizontale.</p></div>
-    <div class="reg"><h3>Voir en relief</h3><p class="mut" style="font-size:25px">La mappe drapée sur le relief, en 3D ou en vue panoramique. Sur le terrain : sa position et la boussole.</p></div>
-    <div class="reg"><h3>Produire</h3><p class="mut" style="font-size:25px">Un PDF à l'échelle, du A4 au A0. Une maquette 3D à imprimer ou à découper au laser. Une courte vidéo de survol.</p></div>
-    <div class="reg"><h3>Partager, contribuer</h3><p class="mut" style="font-size:25px">Un lien vers la vue affichée, des vues favorites, une visite guidée. Et géoréférencer une mappe.</p></div>
-  </div>
-  <div class="pied"><span>Les mappes sardes</span><span>33</span></div>
-</section>
-<section class="s" data-sec="La carte · Le fonctionnement">
-  <span class="tag">Le fonctionnement</span>
-  <h2>Une carte, des sources ouvertes</h2>
-  <svg viewBox="0 0 1680 600" style="width:100%;height:auto;margin-top:46px;font-family:Geist,sans-serif"><text x="0" y="-4" font-size="19" font-weight="600" letter-spacing="1.2" fill="var(--ve)" dy="20">LE PROJET</text><text x="1240" y="-4" font-size="19" font-weight="600" letter-spacing="1.2" fill="var(--bx)" dy="20">SERVICES OUVERTS</text><path d="M440 55 C 540 55, 560 304, 640 304" fill="none" stroke="var(--vc)" stroke-width="2"/><line x1="0" y1="55" x2="440" y2="55" stroke="var(--ve)" stroke-width="2"/><text x="0" y="88" font-size="26" font-weight="600" fill="var(--ink)">Mappes calées</text><text x="0" y="116" font-size="20" fill="var(--mut)">132 mappes de 1730, découpées et assemblées</text><path d="M440 193 C 540 193, 560 304, 640 304" fill="none" stroke="var(--vc)" stroke-width="2"/><line x1="0" y1="193" x2="440" y2="193" stroke="var(--ve)" stroke-width="2"/><text x="0" y="226" font-size="26" font-weight="600" fill="var(--ink)">Paroisses</text><text x="0" y="254" font-size="20" fill="var(--mut)">fiches, cotes, indice de précision</text><path d="M440 331 C 540 331, 560 304, 640 304" fill="none" stroke="var(--vc)" stroke-width="2"/><line x1="0" y1="331" x2="440" y2="331" stroke="var(--ve)" stroke-width="2"/><text x="0" y="364" font-size="26" font-weight="600" fill="var(--ink)">Images des Archives</text><text x="0" y="392" font-size="20" fill="var(--mut)">copies de la Haute-Savoie, servies en IIIF</text><path d="M440 469 C 540 469, 560 304, 640 304" fill="none" stroke="var(--vc)" stroke-width="2"/><line x1="0" y1="469" x2="440" y2="469" stroke="var(--ve)" stroke-width="2"/><text x="0" y="502" font-size="26" font-weight="600" fill="var(--ink)">Géoréférencements des visiteurs</text><text x="0" y="530" font-size="20" fill="var(--mut)">faits dans Allmaps, vérifiés avant intégration</text><path d="M1240 55 C 1140 55, 1120 304, 1040 304" fill="none" stroke="#e8cfd3" stroke-width="2"/><line x1="1240" y1="55" x2="1680" y2="55" stroke="var(--bx)" stroke-width="2"/><text x="1240" y="88" font-size="26" font-weight="600" fill="var(--ink)">SITG, Genève</text><text x="1240" y="116" font-size="20" fill="var(--mut)">plan Micheli 1730, ortho 1932, parcelles</text><path d="M1240 147 C 1140 147, 1120 304, 1040 304" fill="none" stroke="#e8cfd3" stroke-width="2"/><line x1="1240" y1="147" x2="1680" y2="147" stroke="var(--bx)" stroke-width="2"/><text x="1240" y="180" font-size="26" font-weight="600" fill="var(--ink)">IGN Géoplateforme</text><text x="1240" y="208" font-size="20" fill="var(--mut)">cadastre, bâtiments, ortho 1950-65</text><path d="M1240 239 C 1140 239, 1120 304, 1040 304" fill="none" stroke="#e8cfd3" stroke-width="2"/><line x1="1240" y1="239" x2="1680" y2="239" stroke="var(--bx)" stroke-width="2"/><text x="1240" y="272" font-size="26" font-weight="600" fill="var(--ink)">swisstopo</text><text x="1240" y="300" font-size="20" fill="var(--mut)">données fédérales suisses</text><path d="M1240 331 C 1140 331, 1120 304, 1040 304" fill="none" stroke="#e8cfd3" stroke-width="2"/><line x1="1240" y1="331" x2="1680" y2="331" stroke="var(--bx)" stroke-width="2"/><text x="1240" y="364" font-size="26" font-weight="600" fill="var(--ink)">Mapterhorn</text><text x="1240" y="392" font-size="20" fill="var(--mut)">relief pour la 3D et l'ombrage</text><path d="M1240 423 C 1140 423, 1120 304, 1040 304" fill="none" stroke="#e8cfd3" stroke-width="2"/><line x1="1240" y1="423" x2="1680" y2="423" stroke="var(--bx)" stroke-width="2"/><text x="1240" y="456" font-size="26" font-weight="600" fill="var(--ink)">OpenFreeMap, Esri</text><text x="1240" y="484" font-size="20" fill="var(--mut)">fond de plan et image satellite</text><path d="M1240 515 C 1140 515, 1120 304, 1040 304" fill="none" stroke="#e8cfd3" stroke-width="2"/><line x1="1240" y1="515" x2="1680" y2="515" stroke="var(--bx)" stroke-width="2"/><text x="1240" y="548" font-size="26" font-weight="600" fill="var(--ink)">Adresses</text><text x="1240" y="576" font-size="20" fill="var(--mut)">Base adresse nationale, OpenStreetMap</text><rect x="640" y="202" width="400" height="202" fill="var(--ink)"/><text x="840" y="294" text-anchor="middle" font-size="44" font-weight="600" fill="#fff">La carte</text><text x="840" y="335" text-anchor="middle" font-size="21" fill="rgba(255,255,255,.7)">dans le navigateur,</text><text x="840" y="361" text-anchor="middle" font-size="21" fill="rgba(255,255,255,.7)">rien à installer</text></svg>
-  <div class="pied"><span>Les mappes sardes</span><span>34</span></div>
 </section>
 <section class="s noir" data-sec="La carte">
   <div style="position:absolute;left:120px;bottom:220px;right:120px">
@@ -549,7 +429,7 @@ ul.trait li::before{content:"";position:absolute;left:0;top:.68em;width:18px;hei
     <h1 style="font-size:170px">La carte</h1>
     <button class="bouton" id="ouvrir">Ouvrir la carte <span style="font-size:40px">→</span></button>
   </div>
-  <div class="pied"><span>Les mappes sardes</span><span>35</span></div>
+  <div class="pied"><span>Les mappes sardes</span><span>26</span></div>
 </section>
 <section class="s titre" data-sec="Conclusion">
   <div style="position:absolute;left:120px;top:150px;right:120px">
