@@ -64,6 +64,7 @@ section:first-of-type{border-top:0}
 .bar .t b{color:var(--ink);font-weight:600}
 .bar .track{height:10px;background:var(--lt)}
 .bar .fill{height:100%;width:33%;background:var(--ve)}
+.duo{display:contents}
 .leg{display:flex;flex-wrap:wrap;gap:8px 20px;font-size:13px;color:var(--mut);margin-top:18px}
 .leg i{display:inline-block;width:12px;height:12px;margin-right:7px;vertical-align:-1px}
 .map{background:var(--bg)}
@@ -98,6 +99,7 @@ section:first-of-type{border-top:0}
 .cta{display:flex;flex-direction:column;gap:10px}
 .btn{display:inline-flex;justify-content:space-between;align-items:center;gap:14px;padding:16px 20px;background:var(--ink);color:#fff;text-decoration:none;font-weight:600;font-size:16px}
 .btn:hover{background:var(--ve)}
+.btn{font-family:inherit;cursor:pointer;border:0;text-align:left}
 .btn.sec{background:none;color:var(--ink);border:1.5px solid var(--ink)}
 .btn.sec:hover{background:var(--tint)}
 .btn:focus-visible{outline:2px solid var(--ve);outline-offset:3px}
@@ -119,6 +121,83 @@ footer{border-top:1px solid var(--lt);padding:22px 0 40px;font-size:13px;color:v
   .terr b{font-size:32px}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+
+/* ===== Impression A4 : une page, couleurs conservées ===== */
+@page{size:A4 portrait;margin:10mm 12mm}
+@media print{
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  html,body{background:#fff}
+  body{font-size:8.4pt;line-height:1.36}
+  .wrap{max-width:none;padding:0}
+  p{max-width:none}
+  p+p{margin-top:4pt}
+  h2{font-size:12.5pt;margin-bottom:4pt;letter-spacing:-.015em}
+  h3{font-size:9.5pt;margin-bottom:2pt}
+  .tag{font-size:6.5pt;margin-bottom:3pt}
+  section{padding:6pt 0}
+  .pair,.kpis,.index,.steps,.corpus,.site{break-inside:avoid}
+
+  header{border-radius:0}
+  header .wrap{grid-template-columns:1fr auto;gap:14pt;padding:9pt 14pt}
+  header h1{font-size:25pt}
+  header p{font-size:10.5pt;margin-top:5pt}
+  header .by{font-size:7.5pt;margin-top:6pt}
+  header figure{justify-self:end}
+  header figure img{height:84pt;border-radius:8pt;box-shadow:none}
+  header figcaption{display:none}
+
+  .kpis{grid-template-columns:repeat(4,1fr);gap:10pt;margin:8pt 0 0}
+  .kpi{padding-top:4pt;border-top-width:1.5pt}
+  .kpi b{font-size:19pt}
+  .kpi span{font-size:7pt;margin-top:2pt}
+
+  .corpus{grid-template-columns:1fr 1fr;gap:14pt;margin-top:4pt}
+  .terr{gap:10pt}
+  .terr b{font-size:18pt}
+  .terr span{font-size:7pt;margin-top:2pt}
+  .bar{margin-top:8pt}
+  .bar .t{font-size:7pt;margin-bottom:3pt}
+  .bar .track{height:5pt}
+  .corpus p.mut{font-size:7.5pt!important;margin-top:7pt!important}
+  .leg{font-size:6.8pt;margin-top:6pt;gap:3pt 10pt}
+  .leg i{width:7pt;height:7pt;margin-right:4pt}
+  .map{max-height:108pt;width:auto;justify-self:center}
+
+  .steps{grid-template-columns:repeat(5,1fr);gap:7pt;margin-top:6pt}
+  .steps li{font-size:7pt;line-height:1.3;padding-top:3pt;border-top-width:1.5pt}
+  .steps li::before{font-size:11pt;margin-bottom:1pt}
+  .steps b{font-size:8pt}
+  .pair{grid-template-columns:repeat(3,1fr);gap:8pt;margin-top:8pt}
+  .pair figure:last-child{grid-column:auto}
+  .pair figure img{aspect-ratio:auto;height:62pt;width:100%}
+  .pair figcaption{font-size:6.8pt;margin-top:2pt}
+  section h3[style]{margin-top:8pt!important}
+  section p.mut[style]{font-size:7.5pt!important}
+  .index{grid-template-columns:1fr 1fr;gap:8pt;margin-top:5pt}
+  .index div{padding:5pt 8pt;border-left-width:2pt}
+  .index b{font-size:14pt}
+  .index span{font-size:7pt}
+
+  .duo{display:grid;grid-template-columns:1.25fr 1fr;gap:18pt;border-top:1px solid var(--lt);break-inside:avoid}
+  .duo section{border-top:0}
+  .site{grid-template-columns:1fr;gap:0}
+  .shots,.src{display:none}
+  .duo h2{font-size:11pt}
+  .feat{font-size:7.5pt;margin-top:5pt;column-gap:10pt}
+  .feat li{margin-bottom:1pt;padding-left:10pt}
+  .feat li::before{width:6pt;top:.7em}
+  .src{font-size:6.8pt;margin-top:5pt}
+  .shots{gap:6pt}
+  .shots .o{max-height:66pt;width:auto}
+  .shots .t{width:33pt;border-radius:6pt}
+  .shots img{border-radius:4pt}
+
+  .next{grid-template-columns:1fr;gap:4pt}
+  .cta{display:none}
+  .next p::after{content:" Présentation complète : ouestcharly.github.io/mappe-sarde-presentation";color:var(--ve);font-weight:500}
+  .print-hide{display:none}
+  footer{padding:6pt 0 0;font-size:6.8pt}
+}
 </style>
 </head>
 <body>
@@ -144,7 +223,7 @@ footer{border-top:1px solid var(--lt);padding:22px 0 40px;font-size:13px;color:v
   <span class="tag">En bref</span>
   <h2>Superposer le territoire de 1730 et celui d'aujourd'hui, parcelle par parcelle</h2>
   <p>Chaque mappe sarde est calée sur le cadastre actuel, découpée à la limite de sa paroisse et assemblée avec ses voisines, puis publiée sur un site cartographique ouvert. Le cadastre sarde couvre tout l'ancien duché : 290 originaux et 310 copies, conservés aux Archives départementales de la Haute-Savoie et aux Archives d'État de Genève.</p>
-  <p>Les outils existants, comme « Remonter le temps » de l'IGN ou le « Voyage dans le temps » de swisstopo, montrent surtout des photos aériennes anciennes. Les cadastres y sont rares, malgré leur couverture complète.</p>
+  <p class="print-hide">Les outils existants, comme « Remonter le temps » de l'IGN ou le « Voyage dans le temps » de swisstopo, montrent surtout des photos aériennes anciennes. Les cadastres y sont rares, malgré leur couverture complète.</p>
   <div class="kpis">
     <div class="kpi"><b class="num">132</b><span>mappes géoréférencées</span></div>
     <div class="kpi"><b class="num">1 958</b><span>km² couverts</span></div>
@@ -166,7 +245,7 @@ footer{border-top:1px solid var(--lt);padding:22px 0 40px;font-size:13px;color:v
         <div class="t"><span>Avancement en Haute-Savoie</span><b class="num">101 / 310 paroisses</b></div>
         <div class="track"><div class="fill"></div></div>
       </div>
-      <p class="mut" style="font-size:15px;margin-top:20px">Une mappe compte en moyenne 202 points pour 15 km². Le nombre de points va de 11 (Abondance, 4ᵉ feuille) à 1 477 (Talloires) : il suit surtout le nombre de repères encore visibles sur le terrain.</p>
+      <p class="mut print-hide" style="font-size:15px;margin-top:20px">Une mappe compte en moyenne 202 points pour 15 km². Le nombre de points va de 11 (Abondance, 4ᵉ feuille) à 1 477 (Talloires) : il suit surtout le nombre de repères encore visibles sur le terrain.</p>
       <div class="leg"><span><i style="background:var(--ve)"></i>Haute-Savoie</span><span><i style="background:var(--bx)"></i>Genève</span><span><i style="background:var(--rc)"></i>Micheli, Saint-Victor, Chapitre, Jussy</span></div>
     </div>
     <img class="map" src="../assets/carte_corpus.svg" alt="Carte des paroisses déjà géoréférencées en Haute-Savoie et à Genève">
@@ -176,7 +255,7 @@ footer{border-top:1px solid var(--lt);padding:22px 0 40px;font-size:13px;color:v
 <section>
   <span class="tag">La méthode</span>
   <h2>De l'image d'archives à la carte en ligne, en cinq étapes</h2>
-  <p>Tout se fait dans QGIS, un logiciel libre. Le pointage est manuel ; une fois les points placés, le reste est automatisé et prend quelques minutes par mappe.</p>
+  <p class="print-hide">Tout se fait dans QGIS, un logiciel libre. Le pointage est manuel ; une fois les points placés, le reste est automatisé et prend quelques minutes par mappe.</p>
   <ol class="steps">
     <li><b>Préparer</b>Réassembler les vues numérisées des archives.</li>
     <li><b>Pointer</b>Relier un coin d'église, un carrefour, un pont à sa position actuelle.</li>
@@ -190,13 +269,14 @@ footer{border-top:1px solid var(--lt);padding:22px 0 40px;font-size:13px;color:v
     <figure><img src="../assets/loisin_calee.webp" alt="Mappe de Loisin géoréférencée"><figcaption><b>La mappe géoréférencée</b>, prête à être assemblée.</figcaption></figure>
   </div>
   <h3 style="margin-top:34px">Peut-on s'y fier ? Un indice de précision par mappe</h3>
-  <p class="mut" style="font-size:15px">L'indice combine l'écart résiduel des points (en mètres, par rapport au cadastre actuel), leur densité et la part de la paroisse bien couverte. Il ne pénalise pas les mappes de montagne, où les repères sont rares.</p>
+  <p class="mut print-hide" style="font-size:15px">L'indice combine l'écart résiduel des points (en mètres, par rapport au cadastre actuel), leur densité et la part de la paroisse bien couverte. Il ne pénalise pas les mappes de montagne, où les repères sont rares.</p>
   <div class="index">
     <div><b class="num">94 %</b><span>Loisin, en plaine · 144 points · couverture 91 % · écart médian 9,8 m</span></div>
     <div><b class="num">79 %</b><span>Bernex, en montagne · 472 points · couverture 65 %</span></div>
   </div>
 </section>
 
+<div class="duo">
 <section>
   <span class="tag">Le site</span>
   <div class="site">
@@ -231,9 +311,11 @@ footer{border-top:1px solid var(--lt);padding:22px 0 40px;font-size:13px;color:v
     </div>
     <div class="cta">
       <a class="btn" href="https://ouestcharly.github.io/mappe-sarde-presentation/">Voir la présentation complète <span aria-hidden="true">→</span></a>
+      <button class="btn sec" id="imprimer" type="button">Imprimer en A4 ou enregistrer en PDF <span aria-hidden="true">⎙</span></button>
     </div>
   </div>
 </section>
+</div>
 
 </main>
 
@@ -241,5 +323,8 @@ footer{border-top:1px solid var(--lt);padding:22px 0 40px;font-size:13px;color:v
   <div class="wrap">Mapper l'histoire · Charles Bastide-Fouque · Mappes : Archives départementales de la Haute-Savoie (1 C d) et Archives d'État de Genève (Cadastre D).</div>
 </footer>
 
+<script>
+document.getElementById('imprimer').addEventListener('click',function(){try{window.print();}catch(e){}});
+</script>
 </body>
 </html>
