@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mapper l'histoire, récap du projet</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* Page claire unique, reprise de la charte de la présentation : vert sapin (Haute-Savoie), bordeaux (Genève).
+   Mise en page : colonne de lecture de 1080px, sections séparées par un filet, chiffres en grand. */
+:root{
+  --ink:#16181a; --mut:#62686c; --lt:#e4e7e8; --bg:#ffffff; --tint:#f3f6f5;
+  --ve:#526e65; --bx:#7b1f2e; --rc:#c4707c;
+  --f:"Geist",Helvetica,Arial,sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:var(--bg)}
+body{background:var(--bg);color:var(--ink);font-family:var(--f);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:var(--ve);text-underline-offset:3px}
+a:focus-visible{outline:2px solid var(--ve);outline-offset:3px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+h1,h2,h3{text-wrap:balance;font-weight:600}
+h2{font-size:30px;letter-spacing:-.025em;line-height:1.15;margin-bottom:14px}
+h3{font-size:18px;letter-spacing:-.01em;margin-bottom:6px}
+p{max-width:65ch}
+p+p{margin-top:12px}
+.tag{font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--ve);margin-bottom:10px;display:block}
+.mut{color:var(--mut)}
+.num{font-variant-numeric:tabular-nums}
+
+/* en-tête */
+header{background:var(--ve);color:#fff}
+header .wrap{padding-top:56px;padding-bottom:48px;display:grid;grid-template-columns:1.4fr 1fr;gap:40px;align-items:end}
+header .tag{color:rgba(255,255,255,.75)}
+header h1{font-size:clamp(44px,7vw,80px);line-height:.95;letter-spacing:-.045em}
+header p{font-size:20px;line-height:1.4;margin-top:18px;color:rgba(255,255,255,.92)}
+header .by{font-size:14px;color:rgba(255,255,255,.7);margin-top:22px}
+header figure{justify-self:end}
+header figure img{height:330px;width:auto;border-radius:18px;box-shadow:0 10px 30px rgba(0,0,0,.25)}
+header figcaption{font-size:13px;color:rgba(255,255,255,.7);margin-top:8px;max-width:260px}
+
+section{border-top:1px solid var(--lt);padding:44px 0}
+section:first-of-type{border-top:0}
+
+/* chiffres */
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin:26px 0 8px}
+.kpi{border-top:2px solid var(--ink);padding-top:12px}
+.kpi b{display:block;font-size:44px;line-height:1;letter-spacing:-.04em;font-weight:600;font-variant-numeric:tabular-nums}
+.kpi span{font-size:14px;color:var(--mut);display:block;margin-top:6px;line-height:1.35}
+
+.corpus{display:grid;grid-template-columns:1fr 1.15fr;gap:40px;align-items:center;margin-top:20px}
+.terr{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.terr div{border-top:2px solid var(--ve);padding-top:10px}
+.terr div.ge{border-color:var(--bx)}
+.terr b{font-size:38px;letter-spacing:-.04em;line-height:1;color:var(--ve);font-variant-numeric:tabular-nums}
+.terr .ge b{color:var(--bx)}
+.terr span{display:block;font-size:14px;color:var(--mut);margin-top:6px}
+.bar{margin-top:26px}
+.bar .t{display:flex;justify-content:space-between;font-size:14px;color:var(--mut);margin-bottom:6px}
+.bar .t b{color:var(--ink);font-weight:600}
+.bar .track{height:10px;background:var(--lt)}
+.bar .fill{height:100%;width:33%;background:var(--ve)}
+.leg{display:flex;flex-wrap:wrap;gap:8px 20px;font-size:13px;color:var(--mut);margin-top:18px}
+.leg i{display:inline-block;width:12px;height:12px;margin-right:7px;vertical-align:-1px}
+.map{background:var(--bg)}
+
+/* méthode */
+.steps{list-style:none;display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin-top:24px;counter-reset:s}
+.steps li{border-top:2px solid var(--ink);padding-top:10px;counter-increment:s;font-size:14px;color:var(--mut);line-height:1.4}
+.steps li::before{content:counter(s);display:block;font-size:30px;font-weight:600;color:var(--ve);letter-spacing:-.03em;line-height:1;margin-bottom:8px}
+.steps b{display:block;color:var(--ink);font-size:16px;margin-bottom:3px}
+.pair{display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px;margin-top:30px}
+.pair figure img{width:100%;aspect-ratio:1;object-fit:contain;background:var(--tint);border:1px solid var(--lt)}
+.pair figcaption{font-size:13px;color:var(--mut);margin-top:6px;line-height:1.35}
+.pair figcaption b{color:var(--ink);font-weight:600}
+.index{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:26px}
+.index div{background:var(--tint);padding:16px 18px;border-left:3px solid var(--ve)}
+.index b{font-size:32px;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.index span{display:block;font-size:14px;color:var(--mut)}
+
+/* site */
+.site{display:grid;grid-template-columns:1.1fr 1fr;gap:36px;align-items:start}
+.shots{display:flex;gap:14px;align-items:flex-end}
+.shots img{border:1px solid var(--lt);border-radius:8px}
+.shots .o{flex:1 1 auto;min-width:0}
+.shots .t{width:110px;flex:none;border-radius:14px}
+.feat{list-style:none;columns:2;column-gap:24px;margin-top:16px;font-size:15px}
+.feat li{break-inside:avoid;padding-left:18px;position:relative;margin-bottom:6px}
+.feat li::before{content:"";position:absolute;left:0;top:.72em;width:9px;height:2px;background:var(--ve)}
+.src{font-size:14px;color:var(--mut);margin-top:16px}
+
+/* suite */
+.next{display:grid;grid-template-columns:1.4fr 1fr;gap:36px;align-items:center}
+.cta{display:flex;flex-direction:column;gap:10px}
+.btn{display:inline-flex;justify-content:space-between;align-items:center;gap:14px;padding:16px 20px;background:var(--ink);color:#fff;text-decoration:none;font-weight:600;font-size:16px}
+.btn:hover{background:var(--ve)}
+.btn.sec{background:none;color:var(--ink);border:1.5px solid var(--ink)}
+.btn.sec:hover{background:var(--tint)}
+.btn:focus-visible{outline:2px solid var(--ve);outline-offset:3px}
+footer{border-top:1px solid var(--lt);padding:22px 0 40px;font-size:13px;color:var(--mut)}
+
+@media (max-width:820px){
+  header .wrap,.corpus,.site,.next{grid-template-columns:1fr}
+  header figure{justify-self:start}
+  header figure img{height:260px}
+  .kpis{grid-template-columns:1fr 1fr}
+  .steps{grid-template-columns:1fr 1fr}
+  .pair{grid-template-columns:1fr 1fr}
+  .pair figure:last-child{grid-column:1/-1}
+  .index{grid-template-columns:1fr}
+}
+@media (max-width:440px){
+  .steps{grid-template-columns:1fr}
+  .feat{columns:1}
+  .terr b{font-size:32px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div>
+      <span class="tag">Cadastre sarde · Haute-Savoie et Genève</span>
+      <h1>Mapper l'histoire</h1>
+      <p>Les mappes sardes de 1730, géoréférencées, assemblées et consultables aussi facilement qu'un GPS.</p>
+      <div class="by">Charles Bastide-Fouque · récap du projet, novembre 2026</div>
+    </div>
+    <figure>
+      <img src="../assets/tel_3_superposition.jpg" alt="Sur téléphone, le bâti et les parcelles actuels superposés au plan de 1730">
+      <figcaption>Le bâti et les parcelles d'aujourd'hui posés sur le plan de 1730.</figcaption>
+    </figure>
+  </div>
+</header>
+
+<main class="wrap">
+
+<section>
+  <span class="tag">En bref</span>
+  <h2>Superposer le territoire de 1730 et celui d'aujourd'hui, parcelle par parcelle</h2>
+  <p>Chaque mappe sarde est calée sur le cadastre actuel, découpée à la limite de sa paroisse et assemblée avec ses voisines, puis publiée sur un site cartographique ouvert. Le cadastre sarde couvre tout l'ancien duché : 290 originaux et 310 copies, conservés aux Archives départementales de la Haute-Savoie et aux Archives d'État de Genève.</p>
+  <p>Les outils existants, comme « Remonter le temps » de l'IGN ou le « Voyage dans le temps » de swisstopo, montrent surtout des photos aériennes anciennes. Les cadastres y sont rares, malgré leur couverture complète.</p>
+  <div class="kpis">
+    <div class="kpi"><b class="num">132</b><span>mappes géoréférencées</span></div>
+    <div class="kpi"><b class="num">1 958</b><span>km² couverts</span></div>
+    <div class="kpi"><b class="num">26 613</b><span>points de calage placés à la main</span></div>
+    <div class="kpi"><b class="num">33 %</b><span>de la Haute-Savoie déjà traitée</span></div>
+  </div>
+</section>
+
+<section>
+  <span class="tag">Le corpus à ce jour</span>
+  <h2>118 paroisses traitées, de Genève au Mont-Blanc</h2>
+  <div class="corpus">
+    <div>
+      <div class="terr">
+        <div><b>114</b><span>mappes en Haute-Savoie<br>101 paroisses · 1 821 km²</span></div>
+        <div class="ge"><b>18</b><span>mappes à Genève<br>17 paroisses · 138 km²</span></div>
+      </div>
+      <div class="bar" role="img" aria-label="33 % des paroisses de Haute-Savoie traitées : 101 sur 310">
+        <div class="t"><span>Avancement en Haute-Savoie</span><b class="num">101 / 310 paroisses</b></div>
+        <div class="track"><div class="fill"></div></div>
+      </div>
+      <p class="mut" style="font-size:15px;margin-top:20px">Une mappe compte en moyenne 202 points pour 15 km². Le nombre de points va de 11 (Abondance, 4ᵉ feuille) à 1 477 (Talloires) : il suit surtout le nombre de repères encore visibles sur le terrain.</p>
+      <div class="leg"><span><i style="background:var(--ve)"></i>Haute-Savoie</span><span><i style="background:var(--bx)"></i>Genève</span><span><i style="background:var(--rc)"></i>Micheli, Saint-Victor, Chapitre, Jussy</span></div>
+    </div>
+    <img class="map" src="../assets/carte_corpus.svg" alt="Carte des paroisses déjà géoréférencées en Haute-Savoie et à Genève">
+  </div>
+</section>
+
+<section>
+  <span class="tag">La méthode</span>
+  <h2>De l'image d'archives à la carte en ligne, en cinq étapes</h2>
+  <p>Tout se fait dans QGIS, un logiciel libre. Le pointage est manuel ; une fois les points placés, le reste est automatisé et prend quelques minutes par mappe.</p>
+  <ol class="steps">
+    <li><b>Préparer</b>Réassembler les vues numérisées des archives.</li>
+    <li><b>Pointer</b>Relier un coin d'église, un carrefour, un pont à sa position actuelle.</li>
+    <li><b>Projeter</b>Choisir la transformation, le plus souvent un polynôme de degré 3.</li>
+    <li><b>Découper</b>Garder la paroisse seule, sans marges ni cartouche.</li>
+    <li><b>Assembler</b>Harmoniser les teintes et superposer les mappes voisines.</li>
+  </ol>
+  <div class="pair">
+    <figure><img src="../assets/loisin_mappe.jpg" alt="Mappe de Loisin telle que conservée"><figcaption><b>Loisin, la mappe</b> telle qu'elle est conservée.</figcaption></figure>
+    <figure><img src="../assets/loisin_points.jpg" alt="Points de calage sur la mappe de Loisin"><figcaption><b>144 points de calage</b> pour une paroisse de 7,9 km².</figcaption></figure>
+    <figure><img src="../assets/loisin_calee.webp" alt="Mappe de Loisin géoréférencée"><figcaption><b>La mappe géoréférencée</b>, prête à être assemblée.</figcaption></figure>
+  </div>
+  <h3 style="margin-top:34px">Peut-on s'y fier ? Un indice de précision par mappe</h3>
+  <p class="mut" style="font-size:15px">L'indice combine l'écart résiduel des points (en mètres, par rapport au cadastre actuel), leur densité et la part de la paroisse bien couverte. Il ne pénalise pas les mappes de montagne, où les repères sont rares.</p>
+  <div class="index">
+    <div><b class="num">94 %</b><span>Loisin, en plaine · 144 points · couverture 91 % · écart médian 9,8 m</span></div>
+    <div><b class="num">79 %</b><span>Bernex, en montagne · 472 points · couverture 65 %</span></div>
+  </div>
+</section>
+
+<section>
+  <span class="tag">Le site</span>
+  <div class="site">
+    <div>
+      <h2>Un site ouvert, sur ordinateur comme sur téléphone</h2>
+      <p>Le site réunit les mappes assemblées et des données publiques. Les visiteurs peuvent aussi proposer leurs propres géoréférencements dans Allmaps ; ils sont vérifiés avant d'être intégrés.</p>
+      <ul class="feat">
+        <li>Géolocalisation</li>
+        <li>Comparaison de deux fonds de carte</li>
+        <li>Recherche d'adresse</li>
+        <li>Plans PDF et maquettes 3D</li>
+        <li>Réalité augmentée</li>
+        <li>Fiches et cotes d'archives par paroisse</li>
+        <li>Contributions des visiteurs</li>
+        <li>Consultation des géodonnées</li>
+      </ul>
+      <p class="src">Sources : images d'archives de la Haute-Savoie (IIIF), SITG (plan Micheli 1730, orthophoto 1932), IGN Géoplateforme (cadastre, orthophoto 1950-1965), swisstopo, Mapterhorn (relief), OpenFreeMap et Esri (fonds de carte), BAN et OpenStreetMap (adresses).</p>
+    </div>
+    <div class="shots">
+      <img class="o" src="../assets/i_ordi.jpg" alt="Le site sur ordinateur">
+      <img class="t" src="../assets/i_telephone.jpg" alt="Le site sur téléphone">
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="next">
+    <div>
+      <span class="tag">Et ensuite</span>
+      <h2>Finir la Haute-Savoie, puis aller vers un outil de connaissance du territoire</h2>
+      <p>Il reste environ 200 paroisses haut-savoyardes à traiter. À terme, le projet s'inscrit dans l'esprit de la Time Machine de l'EPFL (Frédéric Kaplan et Isabella di Lenardo) : relier les sources anciennes au territoire actuel pour le comprendre et le projeter.</p>
+    </div>
+    <div class="cta">
+      <a class="btn" href="https://ouestcharly.github.io/mappe-sarde-presentation/">Voir la présentation complète <span aria-hidden="true">→</span></a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">Mapper l'histoire · Charles Bastide-Fouque · Mappes : Archives départementales de la Haute-Savoie (1 C d) et Archives d'État de Genève (Cadastre D).</div>
+</footer>
+
+</body>
+</html>
